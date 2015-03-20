@@ -1,0 +1,81 @@
+
+<ion-view hide-back-button="true" hide-nav-bar="true" >
+
+ <ion-content scroll="false" class="shopFull">
+      <!-- </div> -->
+<div class = "unMenu22 ">
+  <div>Shop
+    <a ng-click="" class="searchIcon ion-ios7-search"></a>
+  </div>
+  </div>
+
+
+  <ion-scroll scrollbar-y="true" id="shopListBack">
+  <!-- <hr class="div12"> -->
+
+<!-- data = data.substr(0, 4) + " " + data.substr(4, 6) -->
+
+<!-- <div class="shopCat">. -->
+  <div ng-repeat="cat in shopCatList">
+
+<div class="shopCat" ng-click="goCat(cat.catName,cat.catTag)">
+  <div class="shopCatImg item item-image">
+   <img src="{{cat.catPhoto}}">
+  </div>
+
+  <a class="item shopCatName">
+    {{cat.catName}}
+  </a>
+
+</div>
+
+
+
+       <!-- <img class="shopCatImg" src="{{cat.catPhoto}}"> -->
+
+           <!-- <span class="shopCatName223">{{cat.catName}}</span> -->
+   <!-- </div> -->
+
+    <!-- <img ng-hide="event.cover!=undefined" ng-click="go_here(event)" class="full-image" src="http://i62.tinypic.com/2zznq55.jpg" > -->
+
+
+</div>
+
+<div ng-if="shopCatList.length==0||shopCatList.length==undefined">
+<br><br><br>
+<h1 class="ion-loading-c"></h1>
+</div>
+
+
+ </ion-scroll>
+
+
+
+ <!-- <ion-pane > -->
+
+<!-- <ng-include src="'event-detail.html'" ng-show="singleView == true && tinderView == false"></ng-include> -->
+
+
+
+      <!-- <h1 class="profHead">My Profile</h1> -->
+
+<!-- </ion-pane> -->
+
+
+<!--  -->
+
+
+
+   <!-- <div ng-if="friendView == false" class="notifications" ng-repeat="not in userItem.notifications | orderObjectBy:predicate1"> -->
+    <!-- <div ng-if="unFriends[0]!='none'" ng-repeat="friend in unFriends"> -->
+  <!-- <div ng-if="unFriends.length==0"> -->
+
+
+
+
+ </ion-content>
+
+
+</ion-view>
+
+

@@ -1,0 +1,125 @@
+
+<ion-view hide-back-button="true" hide-nav-bar="true" >
+
+
+
+     <ion-content scrollbar-y="false" scroll="true" padding="false" class="loginBack">
+
+     <div ng-click="logInDimepiece()" class="loginPromptLog">
+     <h1 class="loginTxt">LOG IN</h1>
+      </div>
+
+    <div class = "unMenu42 " ng-click="joinDimepiece()">
+    <!-- <a id='backBtnId' class="topBtn" ng-href="#/app/login"> -->
+
+     <h2 class="joinTxt">JOIN DIMEPIECE</h2>
+  <!--   </a> -->
+   </div>
+
+   <div class="loginPromptClose" ng-click="closeMe()">
+     <h1 class="loginX ion-ios7-close-empty">
+     </h1>
+  </div>
+
+ <script id="login-modal.html" type="text/ng-template">
+
+   <div class="modal">
+
+        <header class="bar bar-header bottomBordAdd" >
+        <div class="topCancel" ng-click="closeSignIn()">
+        <p>Cancel</p>
+        </div>
+          <h1 class="title signUpText">Log In</h1>
+        </header>
+
+        <content has-header="true" padding="true">
+
+        <ion-scroll scrollbar-y="true" class="list LogInContent">
+
+
+            <label class="item-input">
+              <i class="icon ion-person placeholder-icon logInPlaceholder"></i>
+              <input type="text" ng-model="logInUsername" placeholder="Email / Username">
+            </label>
+
+
+            <label class="item item-input">
+              <form ng-submit="logTry(logInUsername,loginPassword)">
+              <i class="icon ion-locked placeholder-icon paddLeft"></i>
+                <input type="password" ng-model="loginPassword" placeholder="Password">
+              </form>
+            </label>
+
+
+          <div class="padding" ng-click="logTry(logInUsername,loginPassword)">
+            <p class="text-center">
+              <a class="createAccount">Log In</a>
+            </p>
+          </div>
+
+           </ion-scroll>
+        </content>
+
+      </div>
+
+
+</script>
+
+
+   <script id="my-modal.html" type="text/ng-template">
+
+   <div class="modal">
+
+        <header class="bar bar-header bottomBordAdd" >
+        <div class="topCancel" ng-click="closeLogin()">
+        <p>Cancel</p>
+        </div>
+          <h1 class="title signUpText">Sign Up</h1>
+        </header>
+
+        <content has-header="true" padding="true">
+
+        <ion-scroll scrollbar-y="true" class="list signInContent">
+        <a ng-show="profPic.length==0" class="profSpot ion-image" ng-click="getPhotos(); closeKeyboard();"></a>
+        <img ng-show="profPic.length>0" class="profSpot2 ion-image" ng-src="data:image/jpg;base64,{{profPic}}" ng-click="getPhotos(); closeKeyboard();">
+        <h1></h1>
+
+         <label class="item item-input" ><i class="icon ion-person placeholder-icon"></i>
+         <input type="text" ng-model="userFullName" placeholder="Full Name" >
+         </label>
+
+            <label class="item item-input">
+              <i class="icon ion-at placeholder-icon"></i>
+              <input type="text" ng-model="username" placeholder="Username">
+            </label>
+
+             <label class="item item-input">
+              <i class="icon ion-ios7-email placeholder-icon paddLeft"></i><input type="email" ng-model="userEmail" placeholder="Email Address">
+            </label>
+
+
+            <label class="item item-input">
+              <form ng-submit="createAccount(userFullName,username,userEmail,password)">
+              <i class="icon ion-locked placeholder-icon paddLeft"></i>
+
+                <input type="password" ng-model="password" placeholder="Password">
+                </form>
+            </label>
+
+
+          <div class="padding" ng-click="createAccount(userFullName,username,userEmail,password)">
+            <p class="text-center">
+              <a class="createAccount">Create Account</a>
+            </p>
+          </div>
+
+           </ion-scroll>
+        </content>
+
+      </div>
+
+
+</script>
+
+ </ion-content>
+</ion-view>

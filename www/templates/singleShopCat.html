@@ -1,0 +1,98 @@
+
+
+
+<ion-view hide-back-button="false" hide-nav-bar="false" animation="slide-left-right">
+<!-- <ion-header-bar align-title="left" class="bar-positive">
+  <div class="buttons">
+    <button class="button" ng-click="doSomething()">Left Button</button>
+  </div>
+  <div class="buttons">
+    <button class="button" ng-click="doSomething()">Left Button</button>
+  </div>
+  <div class="buttons">
+    <button class="button">Right Button</button>
+  </div>
+</ion-header-bar> -->
+
+
+<div class = "unMenu22 ">
+  <div>{{catHeader}}
+    <a ng-click="$event.stopPropagation(); shareBtn('Looking for a '+catHeader+' gift? Check Out Dimepiece! http://unightlife.io/app.', 'Looking for a '+catHeader+' gift?',null, null);" class="searchIcon ion-ios7-upload-outline"></a>
+  </div>
+  </div>
+
+ <ion-content scrollbar-y="true" scroll="true" class="mesh">
+      <!-- </div> -->
+     <ion-refresher id="re1" pulling-icon="none" refreshing-icon="ion-ios7-reloading"  on-refresh="refreshWatches()">
+  </ion-refresher>
+  <!-- <hr class="div12"> -->
+
+<!-- data = data.substr(0, 4) + " " + data.substr(4, 6) -->
+  <div class="eventScroller" ng-repeat="watch in watchList| filter:watchCat | limitTo: loadLimit"  ng-click="expandCat(watch)" >
+
+    <div class="front">
+    <img class="full-image" src="{{watch.watchPhoto}}">
+    <!-- <img ng-hide="event.cover!=undefined" ng-click="go_here(event)" class="full-image" src="http://i62.tinypic.com/2zznq55.jpg" > -->
+
+          <div class="eventInfoSection" ng-init="watch.liked=liked(watch);">
+            <!-- watchAction(event); -->
+             <!-- <a ng-hide="event.watched" ng-click="$event.stopPropagation();" class="ion-ios7-eye-outline watchBtn"></a> -->
+             <!-- <a ng-click="" class="ion-ios7-eye watchBtn"></a> -->
+      <!-- <h3 id="eventName">{{event.name}}</h3> -->
+      <div ng-init="watch.showPrice=false;" class="watchFeedBtns item-text-wrap">
+        <h2 class="watchName">{{watch.watchName}}</h2>
+        <!-- <h2 class="likePrice">{{watch.watchLikes.length}} likes / {{watch.watchPrice}}</h2> -->
+        <h2 ng-if="watch.watchLikes.length!=1" class="likePrice">{{watch.watchLikes.length}} likes / {{watch.watchPrice}}</h2>
+        <h2 ng-if="watch.watchLikes.length==1" class="likePrice">{{watch.watchLikes.length}} like / {{watch.watchPrice}}</h2>
+
+                <!--   <i ng-click="expandPrice(event)" ng-if="event.showPrice==false" class="icon ion-cash"></i>
+                  <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
+                 10.00
+               </i> -->
+               <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="watch.liked" class="icon ion-ios7-heart-outline"></i>
+               <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="watch.liked" class="icon red ion-ios7-heart"></i>
+               <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
+               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+
+              </div>
+      <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
+      <!-- <p class="eventDT" ng-if="event.start_time!=null">{{event.start_time}}</p> -->
+       <!-- <p class="eventDT" ng-if="event.timeOfEvent!=null">{{event.timeOfEvent}}</p> -->
+    </div>
+  </div>
+
+</div>
+
+
+ <!-- </ion-scroll> -->
+
+
+
+ <!-- <ion-pane > -->
+
+<!-- <ng-include src="'event-detail.html'" ng-show="singleView == true && tinderView == false"></ng-include> -->
+
+
+
+      <!-- <h1 class="profHead">My Profile</h1> -->
+
+<!-- </ion-pane> -->
+
+
+<!--  -->
+
+
+
+   <!-- <div ng-if="friendView == false" class="notifications" ng-repeat="not in userItem.notifications | orderObjectBy:predicate1"> -->
+    <!-- <div ng-if="unFriends[0]!='none'" ng-repeat="friend in unFriends"> -->
+  <!-- <div ng-if="unFriends.length==0"> -->
+
+
+
+
+ </ion-content>
+
+
+</ion-view>
+
+

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.gomobile.dimepiece" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Dimepiece</name>
+    <description>
+        The future of buying watches.
+    </description>
+    <author email="nathangrotticelli@gmail.com" href="">
+      DP Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <feature name="StatusBar">
+      <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+     <feature name="Keyboard">
+            <param name="ios-package" value="IonicKeyboard" onload="true" />
+        </feature>
+        <feature name="File">
+    <param name="ios-package" value="CDVFile" />
+</feature>
+<feature name="FileTransfer">
+    <param name="ios-package" value="CDVFileTransfer" />
+</feature>
+</widget>

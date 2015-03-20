@@ -1,0 +1,26 @@
+
+<!-- <ion-tabs ng-hide="main.tabs=="hide"" class="tabs-item-hide slide-left-right"> -->
+<ion-tabs ng-class="{'tabs-item-hide': shouldHide()}" class="unMenu2">
+<!-- <div class='tabs-item-hide'> -->
+
+  <!-- Dashboard Tab ng-click="shopHere()"-->
+  <ion-tab icon-off="ion-ios7-time middleTab" icon-on="ion-ios7-time middleTab activeTab" href="#/app/login" >
+    <ion-nav-view name="login"></ion-nav-view>
+  </ion-tab>
+
+
+  <!-- Chats Tab -->
+  <ion-tab icon-off="ion-ios7-keypad middleTab" icon-on="ion-ios7-keypad middleTab activeTab" href="#/app/shop">
+    <ion-nav-view name="shop"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab icon-off="ion-person middleTab" ng-if="!user()" href="#/app/loginPrompt">
+    <ion-nav-view name="loginPrompt"></ion-nav-view>
+  </ion-tab>
+
+   <ion-tab icon-off="ion-person middleTab" icon-on="ion-person middleTab activeTab" ng-if="user()" href="#/app/profile">
+    <ion-nav-view name="profile"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>

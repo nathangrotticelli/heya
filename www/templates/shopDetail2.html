@@ -1,0 +1,118 @@
+
+<ion-view hide-back-button="false">
+
+
+     <ion-content scroll="false">
+
+
+ <ion-scroll id='expandedEvent'  scrollbar-y="true">
+
+<br>
+<!-- <br> -->
+          <img class="singleImage" src="{{getCover(singleShopWatch2.watchPhoto)}}">
+          <!-- <img ng-if="singleEvent.cover==true" src="http://i62.tinypic.com/2zznq55.jpg" > -->
+
+    <!--      <p class="watchName">
+            {{ singleWatch.name }}
+          </p>
+          <p class="likePrice">
+            {{ singleWatch.watchLikes.length }}
+          </p> -->
+
+
+              <div ng-init="singleShopWatch2.showPrice=false;" class="watchFeedBtns2">
+        <h2 class="watchName">{{singleShopWatch2.watchName}}</h2>
+        <h2 ng-if="singleShopWatch2.watchLikes.length!=1" class="likePrice">{{singleShopWatch2.watchLikes.length}} likes</h2>
+        <h2 ng-if="singleShopWatch2.watchLikes.length==1" class="likePrice">{{singleShopWatch2.watchLikes.length}} like</h2>
+
+                <!--   <i ng-click="expandPrice(event)" ng-if="event.showPrice==false" class="icon ion-cash"></i>
+                  <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
+                 10.00
+               </i> -->
+                <!-- <div ng-click="watchAction(singleEvent)"> -->
+               <i ng-click="addWish(singleShopWatch2);" ng-show="singleShopWatch2.liked!=true" class="icon ion-ios7-heart-outline"></i>
+               <i ng-click="removeWish(singleShopWatch2); " ng-show="singleShopWatch2.liked==true" class="icon red ion-ios7-heart"></i>
+                <!-- </div> -->
+               <i ng-click=" openAddCollection(singleShopWatch2)" class="icon ion-ios7-plus-empty"></i>
+               <i ng-click="shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',singleShopWatch2.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+
+              </div>
+
+                 <div ng-click="expandEvent()" ng-if="singleShopWatch2.description!=null" class="item-text-wrap">
+                <div class="item item-icon-left item-divider">
+                  <i class="icon ion-clipboard"></i>
+                  Watch Info
+                </div>
+                <br>
+                <div id="eventDiv2" ng-show="showEventDesc" class="item animate-if">
+                 {{ singleShopWatch2.description}}
+               </div>
+              </div>
+
+              <!-- <div class = " "> -->
+                <a class="button unMenu33 icon-right ion-ios7-arrow-right" ng-click="goAmazon(singleShopWatch2.watchLink)">{{singleShopWatch2.watchPrice}} on Amazon Prime</a>
+
+                   <div ng-if="singleShopWatch2.watchLikes.length>0" class="watchLikeSection">
+                    <p ng-if="singleShopWatch2.watchLikes.length>1">{{singleShopWatch2.watchLikes.length}} likes</p>
+                  <p ng-if="singleShopWatch2.watchLikes.length<2">{{singleShopWatch2.watchLikes.length}} like</p>
+                  <div ng-if="hasPics(singleShopWatch2.watchLikes)>0" ng-click="goShopPerson(like)" ng-repeat="like in singleShopWatch2.watchLikes | filter:hasUserPic | limitTo:4">
+                    <img ng-if="like.userPic.length>0" class="profImg floatLeft" ng-src="data:image/jpg;base64,{{like.userPic}}">
+                  </div>
+                  <div ng-if="hasPics(singleShopWatch2.watchLikes)<4" ng-click="goShopPerson(like)" ng-repeat="like in singleShopWatch2.watchLikes | filter:hasNoUserPic | limitTo: hasPics2(singleShopWatch2.watchLikes)">
+                    <a ng-if="like.userPic.length==0" class="floatLeft gray ion-android-image"></a>
+                  </div>
+
+
+                     <div ng-if="singleShopWatch2.watchLikes.length>4" class="watchLikeExtra">
+                  +{{singleShopWatch2.watchLikes.length-4}}
+                </div>
+                </div>
+                <!-- <div class="ion-ios7-arrow-right">{{singleWatch.watchPrice}} on Amazon Prime -->
+                  <!-- <div  class="ion-ios7-arrow-right priceArrow"></div> -->
+
+                <!-- </div> -->
+                <!-- </div> -->
+
+
+            <!--   <div ng-if="singleEvent.timeOfEvent!=null" class="item item-icon-left item-divider">
+                <i class="icon ion-ios7-alarm-outline"></i>
+                {{ singleEvent.timeOfEvent }}
+              </div> -->
+              <!-- <br ng-if="singleEvent.timeOfEvent!=null"> -->
+
+
+
+            <!--  <div ng-if="singleEvent.start_time!=null" ng-click="calAdd()" class="item item-icon-left item-divider">
+                <i class="icon ion-ios7-calendar-outline"></i>
+                {{ singleEvent.start_time }}</div>
+                <br>
+
+                 <div ng-if="singleEvent.ticketLink!=null" ng-click="goTicket()" class="item item-icon-left item-divider">
+                <i class="icon ion-ios7-barcode"></i>
+                Tickets
+              </div> -->
+              <!-- <br ng-if="singleEvent.ticketLink!=null"> -->
+
+
+            <!-- <div ng-if="singleEvent.location!=null" ng-click="mapThis()" class="item item-icon-left item-divider">
+                <i class="icon ion-ios7-location"></i>
+                {{ singleEvent.location }}
+              </div>
+                <br ng-if="singleEvent.location!=null">
+
+              <div ng-click="watchAction(singleEvent)" class="item item-icon-left item-divider" >
+                <div ng-if="singleEvent.watched!=true"><i class="icon ion-ios7-eye-outline"></i>Watch Event</div>
+                <div ng-if="singleEvent.watched==true"><i class="icon ion-ios7-eye"></i>You're Watching</div>
+              </div> -->
+                <!-- <br> -->
+
+
+</ion-scroll>
+
+
+
+ </ion-content>
+
+
+
+</ion-view>
