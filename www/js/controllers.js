@@ -715,7 +715,7 @@ $scope.relatedCol= function(watch){
   // return (watch.tags.indexOf($scope.singleWatch.tags[1])>-1&&watch!=$scope.singleWatch);
 };
 $scope.relatedCategory = function(catAbrv){
-  var catList = $scope.shopCatList;
+  var catList = PetService.getCatList();
   for(x=0;x<catList.length;x++){
     if(catList[x].catTag==catAbrv){
       return catList[x].catName;
@@ -1232,41 +1232,6 @@ $scope.relatedCategory = function(catAbrv){
 
 
     }
- $scope.removeColl= function(collection,watch) {
-       // if($scope.user){
-        // alert('here');
-           // var user = $scope.user;
-           // watch.liked = true;
-           // for(l=0;l<$scope.watchList.length;l++){
-           //    if($scope.watchList[l].watchName==watch.watchName){
-           //      watchLoc = l;
-           //      $scope.watchList[watchLoc].liked =  true;
-           //       if($scope.watchList[watchLoc].watchLikes.length>9){
-           //          $scope.watchList[watchLoc].watchLikes.push({'username': $scope.user.username, 'userPic': ''});
-           //        }else{
-           //          $scope.watchList[watchLoc].watchLikes.push({'username': $scope.user.username, 'userPic': $scope.user.userPic});
-           //          // var user = $scope.user;
-           //        }
-           //    }
-           //  }
-
-           // var watchLoc = $scope.watchList.indexOf(watch);
-           // collection.selected = false;
-           // for(x=0;x<collection.watches.length;x++){
-            // alert(collection.watches[x])
-            // $scope.user.collections[x].watches.push(watch.watchName);
-              // PetService.setUser($scope.user);
-            // if(collection.watches[x] == watch.watchName){
-
-               $http.post('http://stark-eyrie-6720.herokuapp.com/updateCollection',
-                 {
-                    user: $scope.user
-                    // collectionName:collection.collectionName
-                  });
-
-            // }
-           // }
-         };
 
     //used to throw better looking popup messages to user
     $scope.showAlert = function(message,title) {
@@ -1382,20 +1347,6 @@ $scope.relatedCategory = function(catAbrv){
       }
             // $scope.thing123();
   };
- $scope.closeSearch= function() {
-    $scope.searchPopover.hide();
-    // $scope.createNew=false;
-  };
-   $scope.openSearch = function($event) {
-    alert('hi');
-    $scope.searchPopover.show($event);
-    // $scope.createNew=false;
-  };
-  //Cleanup the popover when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.searchPopover.remove();
-    // $scope.createNew=false;
-  });
 
   $scope.closeAddCollection = function() {
     $scope.popover2.hide();
@@ -1418,78 +1369,41 @@ $scope.relatedCategory = function(catAbrv){
              return collectionArray;
         };
    $scope.expandProfileCollection = function(collection){
-        // alert('here');
-        // profileCollection = collection;
-        // alert(collection==$scope.profileCollection);
-        // alert($scope.profilleCollection);
-        if(collection==$scope.profileCollection){
-           $state.go('app.profileCollection');
-       }else{
-               if( typeof collection.watches[0] !== 'object'){
-          collection.watches = $scope.getCollectionWatches(collection.watches);
-        }
-        // alert(JSON.stringify(collection));
-         PetService.setProfileCollection(collection);
-         // alert(collection==$scope.profileCollection);
+        var profileColl = {};
+        profileColl.collectionName = collection.collectionName;
+        profileColl.watches = $scope.getCollectionWatches(collection.watches);
+        PetService.setProfileCollection(profileColl);
         $state.go('app.profileCollection');
-            setTimeout(function() {
-               $ionicScrollDelegate.scrollTop();
-            }, 200);
-       }
-
-    };
-       $scope.expandShopCollection = function(collection){
-
-        // alert('here');
-        // profileCollection = collection;
-        // alert(collection==$scope.profileCollection);
-        // alert($scope.profilleCollection);
-        if(collection==$scope.shopCollection){
-           $state.go('app.shopCollection');
-       }else{
-        if( typeof collection.watches[0] !== 'object'){
-          collection.watches = $scope.getCollectionWatches(collection.watches);
+        if(profileColl.collectionName!==$scope.profileCollection.collectionName){
+         setTimeout(function() {
+          $ionicScrollDelegate.scrollTop();
+         }, 200);
         }
-        // alert('here');
-        // alert(JSON.stringify(collection));
-         PetService.setShopCollection(collection);
-          // alert('here');
-         // alert(collection==$scope.profileCollection);
+    };
+    $scope.expandShopCollection = function(collection){
+        var shopColl = {};
+        shopColl.collectionName = collection.collectionName;
+        shopColl.watches = $scope.getCollectionWatches(collection.watches);
+        PetService.setShopCollection(shopColl);
         $state.go('app.shopCollection');
-         // alert('here');
-
-            setTimeout(function() {
-               $ionicScrollDelegate.scrollTop();
-            }, 200);
-       }
-
+        if(shopColl.collectionName!==$scope.shopCollection.collectionName){
+           setTimeout(function() {
+            $ionicScrollDelegate.scrollTop();
+           }, 200);
+        }
     };
      $scope.expandLoginCollection = function(collection){
-
-        // alert('here');
-        // profileCollection = collection;
-        // alert(collection==$scope.profileCollection);
-        // alert($scope.profilleCollection);
-        if(collection==$scope.loginCollection){
-           $state.go('app.loginCollection');
-       }else{
-        if( typeof collection.watches[0] !== 'object'){
-          collection.watches = $scope.getCollectionWatches(collection.watches);
-        }
-        // alert('here');
-        // alert(JSON.stringify(collection));
-         PetService.setLoginCollection(collection);
-          // alert('here');
-         // alert(collection==$scope.profileCollection);
+        var loginColl = {};
+        loginColl.collectionName = collection.collectionName;
+        loginColl.watches = $scope.getCollectionWatches(collection.watches);
+        PetService.setLoginCollection(loginColl);
         $state.go('app.loginCollection');
-         // alert('here');
-
-            setTimeout(function() {
-               $ionicScrollDelegate.scrollTop();
-            }, 200);
-       }
-
-    };
+        if(loginColl.collectionName!==$scope.shopCollection.collectionName){
+           setTimeout(function() {
+            $ionicScrollDelegate.scrollTop();
+           }, 200);
+        }
+     };
 
      $scope.showSel = function(feed){
       if($scope.feed!=feed){
