@@ -526,6 +526,45 @@ background-color: red;
   /*background-color: black!important;*/
 
 }
+.loginSearchInput{
+    /*border-radius: none!important;*/
+}
+.searchSection{
+/*margin-top: 2%;*/
+    /*border-radius: none!important;*/
+    /*padding-top: 5%;*/
+      /*padding-top: 2%;*/
+    padding-bottom: 2%;
+    padding-left: 10%;
+      /*background:#ff6030!important;*/
+
+  /*border-radius: 0!important;*/
+}
+.inputField{
+      /*border-radius: none!important;*/
+      padding-top: 10%;
+      /*padding-bottom: 2%;*/
+      /*margin-top: 5%;*/
+      width:60%;
+       padding-left: 5%!important;
+
+}
+.searchFieldIcon{
+       margin-top: 6%;
+}
+
+.searchCancelButton{
+  /*float: right!important;*/
+  /*width: 5%!important;*/
+  /*display: inline!important;*/
+  /*background-color: transparent;*/
+  /*padding-top:7%;*/
+  right:10%;
+  top:48%;
+  position: absolute;
+  font-size: 15px;
+  /*margin-top: -10px;*/
+}
 @-webkit-keyframes popoverBackFadeIn{ 0% {background-color: rgba(0, 0, 0, 0);} 100% {background-color: rgba(0, 0, 0, .25);} }
 @-webkit-keyframes expandInto { 0% {margin-top: -50%;} 100% {margin-top: 0px;} }
 /*@-webkit-keyframes expandOut { 0% {margin-top: 0%;} 100% {margin-top: -50%;} }*/
@@ -661,6 +700,12 @@ background-color: red;
     /*padding-right:3%;*/
   display: inline;
     min-height: 50px!important;
+      /*padding: -1%!important;*/
+    /*text-align: center!important;*/
+      /*max-height: 30%!important;*/
+    /*padding-left: 8%;*/
+    /*padding-left: 0;*/
+     /*margin-right: -1px!important;*/
 
 }
 .radioColl{
@@ -677,11 +722,20 @@ background-color: red;
   /*margin-left: 0%;*/
   margin-right: 6%;
 }
+.collectionItem4{
+  max-height: 100px;
+  margin-bottom: 3%;
+  margin-right:2.5%;
+  opacity: 1;
+}
+.collectionItem4:active{
+  opacity: .75;
+}
 .collectionItem3{
   max-height: 125px;
   margin-bottom: 3%;
   margin-right: 2%;
-  opacity: inherit!important;
+  /*opacity: inherit!important;*/
 }
 .collectionItem2{
   min-height: 83px;
@@ -699,6 +753,21 @@ margin-right: 1%;
 max-height: 78px;
 margin-bottom: 3%;
 /*max-width: 80px;*/
+}
+.relatedCollectionName{
+ text-align: left;
+    font-family: 'Gafata', sans-serif;
+  font-size: 21px;
+  color:gray;
+  /*opacity: .9;*/
+  padding-top: 7%;
+  /*padding-bottom: .5%;*/
+   clear: both;
+   padding-left: 10%;
+   border-top: 1px solid lightgray;
+   /*margin-top: 25px;*/
+
+  /*display: block;*/
 }
 .collectionName{
 
@@ -1165,7 +1234,7 @@ form{
   font-size: 21px;
   color:gray;
   /*opacity: .9;*/
-  padding-top: 1%;
+  padding-top: 5%;
   padding-bottom: 1%;
 }
 .floatLeft{
@@ -1267,7 +1336,7 @@ border-top: 1px solid lightgray!important;
   /*text-decoration: underline;*/
 }
 .profilePage{
-   -webkit-animation: faderInto 1.7s;
+   -webkit-animation: faderInto 1.6s;
 }
 .eventInfoSection{
   /*padding-top: 1%;*/
@@ -1281,7 +1350,7 @@ border-top: 1px solid lightgray!important;
 /*border-top: 0px;*/
 }
 .shopFull{
-    -webkit-animation: faderInto 1.7s;
+    -webkit-animation: faderInto 1.6s;
 }
 /*.moveDown{
   margin-top:2%;
@@ -1291,7 +1360,7 @@ border-top: 1px solid lightgray!important;
 .mesh{
   /*height:auto!important;*/
   background-color: white;
-    -webkit-animation: faderInto 1.9s;
+    -webkit-animation: faderInto 1.6s;
  /*margin-top:0%;*/
   /*opacity: .9;*/
   /*-webkit-animation: show 1.2s 1;*/
@@ -1684,6 +1753,9 @@ html {
   top: 48%;
   /*top:36%;*/
   font-size: 26px;
+  z-index: 999!important;
+  padding-left: 2%;
+  padding-bottom: 2%;
   /*color:white;*/
   /*margin-top:.5%;*/
   position: absolute;
@@ -1712,12 +1784,13 @@ html {
   /*padding-bottom: -1%;*/
   /*left: 63%;*/
   /*top:36%;*/
-  font-size: 15px;
-  /*margin-top:.5%;*/
+  font-size: 16px;
+  /*padding-top:10%!important;*/
   /*position: absolute;*/
   /*padding-left: 1%;*/
   padding-left: 1%;
-  z-index: 999;
+  /*top:4;*/
+  z-index: 9;
   /*border: 1px solid black;*/
    /*display: inline;*/
    /*position: absolute;*/
@@ -1892,6 +1965,7 @@ html {
   /*border: gray 1px solid;*/
   height:50px!important;
   width: 50px!important;
+  margin-bottom: 25px;
 }
 .profileUsername{
   font-size: 13px;
@@ -1921,10 +1995,11 @@ html {
   z-index: 999!important;
   padding-bottom:5%;
   padding-top: 10.5%;
-  text-align: center;
+  text-align: center!important;
   top:0%;
   border-bottom: .5px solid lightgray;
   font-size: 22px;
+  font-weight: 600;
   font-family: 'Gafata', sans-serif;
   opacity: 1;
   color: #141414;
@@ -1986,7 +2061,7 @@ html {
   background-color: #ecf0f1;
   opacity: 1;
   width: auto!important;
-    -webkit-animation: faderInto 1.3s;
+    /*-webkit-animation: faderInto 1.3s;*/
   /*height: 100%!important;*/
   /*z-index: 999;*/
 
@@ -2403,6 +2478,7 @@ button{
   /*background-position: auto auto;*/
   width: 100%;
   margin-bottom: 5%;
+   -webkit-animation: faderInto 1.6s;
   /*height: 100%;*/
   /*height:100%!important;*/
   /*height: 85%;*/
@@ -2505,8 +2581,9 @@ button{
 .backBar{
   background-color: transparent!important;
   padding-left: 7.5%;
-  padding-top: 2%;
-  padding-bottom: 3%;
+  /*padding-top: -1%;*/
+  /*padding-bottom: 0%;*/
+  padding-right: 5%;
   /*border: none!important;*/
    /*padding-left:3%!important;*/
 }
@@ -2522,42 +2599,16 @@ button{
     /*background-color: blue;*/
 }
 .topBtn{
-  font-size: 35px;
+  font-size: 42px;
   color:gray;
+  /*width: 100px!important;*/
     background-color: transparent;
-  /*padding: 10%;*/
-  /*margin: 5%;*/
-  /*padding-left: 8%;*/
-    /*background-color: transparent;*/
-  /*text-align: left;*/
-  /*float:left;*/
-  /*font-variant: small-caps;*/
-  /*vertical-align: center;*/
-  /*top:-50px;*/
-  /*z-index: 999!important;*/
-  -webkit-animation: faderInto 2.3s;
+  /*border:1px solid blue!important;*/
+  -webkit-animation: faderInto 2s;
   /*opacity: .9!important;*/
-  padding-right: 5%;
-  padding-bottom: 5%;
-  /*display: inline!important;*/
-  /*border:6px solid black;*/
-  /*border-bottom: thick double;*/
-  /*border-left: thick double;*/
-  /*border-right: thick double;*/
-  /*border-bottom: 0px;*/
-  /*border-color: transparent;*/
-  /*padding: */
-  /*position: absolute;*/
-  /*padding-left:5%!important;*/
-  /*top:4%;*/
-  /*width:100px!important;*/
-  /*width: 18%;*/
-  /*height: 12%;*/
-  /*padding-right: 15%;*/
-  /*padding-bottom: 15%;*/
-  /*padding-left: 5%;
-  padding-right: 5px;
-  padding-top: 5%;*/
+  /*padding-right: 3%;*/
+  /*margin-right: 3%;*/
+  /*margin-bottom: 10%;*/
 }
 
 

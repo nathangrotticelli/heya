@@ -32,49 +32,7 @@ var addCollWatch = {};
     var singlePerson = {};
   var singleShopPerson = {};
   var singleProfilePerson = {};
-
-  var shopCatList = [
-        {
-            "catName": "Techie",
-            "catTag":"TCH",
-            "catPhoto": "http://i62.tinypic.com/2lnd7q1.jpg"
-        },
-        {
-            "catName": "Minimalist",
-            "catTag":"MIN",
-            "catPhoto": "http://i62.tinypic.com/5ys3nk.jpg"
-        },
-        {
-            "catName": "Adventurous",
-            "catTag":"ADV",
-            "catPhoto": "http://i58.tinypic.com/mw6zhw.jpg"
-        },
-        {
-            "catName": "Stylish",
-            "catTag":"STY",
-            "catPhoto": "http://i61.tinypic.com/2rcy24z.jpg"
-        },
-        {
-            "catName": "Modern",
-            "catTag":"MDR",
-            "catPhoto": "http://i62.tinypic.com/2821ism.jpg"
-        },
-        {
-            "catName": "Under $20",
-            "catTag":"U20",
-            "catPhoto": "http://i59.tinypic.com/1zzt5i0.jpg"
-        },
-        {
-            "catName": "Boyfriendy",
-            "catTag":"BG",
-            "catPhoto": "http://i62.tinypic.com/2821ism.jpg"
-        },
-        {
-            "catName": "Outdoorsy",
-            "catTag":"OUT",
-            "catPhoto": "http://i59.tinypic.com/1zzt5i0.jpg"
-        }
-      ];
+  var shopCatList = [];
   var privateList = {};
   var userItem = false;
   // var userItem =      {
@@ -151,6 +109,9 @@ var addCollWatch = {};
             },
              getCatList: function () {
                 return shopCatList;
+            },
+             setCatList: function (value) {
+                shopCatList = value;
             },
             getWatchList: function () {
                 return watchList;

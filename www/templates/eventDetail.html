@@ -44,7 +44,7 @@
 						  		Watch Info
 						  	</div>
 						  	<br>
-						  	<div id="eventDiv2" ng-show="showEventDesc" class="item animate-if">
+						  	<div id="eventDiv2" ng-show="showEventDesc" class="item">
 	          		 {{ singleWatch.description}}
 	       			 </div>
 						  </div>
@@ -68,6 +68,14 @@
                   +{{singleWatch.watchLikes.length-4}}
                 </div>
                 </div>
+                <!-- <br> -->
+                <div ng-repeat="collection in singleWatch.tags | limitTo: 2">
+                  <h2 class="relatedCollectionName">{{relatedCategory(collection)}}</h2>
+                  <div class="collectionSection" ng-repeat="watch in watchList| filter: {tags:collection} | filter: relatedCol | limitTo: 3">
+                    <img ng-click="go_here2(watch)" class="collectionItem4" src="{{collectionWatchPic(watch)}}">
+                  </div>
+                </div>
+
                 <!-- <br> <br> -->
                 <!-- <br> -->
 							  <!-- <div class="ion-ios7-arrow-right">{{singleWatch.watchPrice}} on Amazon Prime -->

@@ -67,6 +67,13 @@
                   +{{singleShopWatch.watchLikes.length-4}}
                 </div>
                 </div>
+
+                <div ng-repeat="collection in singleShopWatch.tags | limitTo: 2">
+                  <h2 class="relatedCollectionName">{{relatedCategory(collection)}}</h2>
+                  <div class="collectionSection" ng-repeat="watch in watchList| filter: {tags:collection} | filter: relatedCol | limitTo: 3">
+                    <img ng-click="expandCat2(watch)" class="collectionItem4" src="{{collectionWatchPic(watch)}}">
+                  </div>
+                </div>
                 <!-- <div class="ion-ios7-arrow-right">{{singleWatch.watchPrice}} on Amazon Prime -->
                   <!-- <div  class="ion-ios7-arrow-right priceArrow"></div> -->
 
