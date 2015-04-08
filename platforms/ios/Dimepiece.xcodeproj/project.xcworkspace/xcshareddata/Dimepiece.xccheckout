@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E348A312-224D-4879-B71E-8CDE99E28F61</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Dimepiece</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F35427BD1C7DB44E5F9C3F5CAC23797AC9ADDDFB</key>
+		<string>https://github.com/nathangrotticelli/heya.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Dimepiece.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F35427BD1C7DB44E5F9C3F5CAC23797AC9ADDDFB</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nathangrotticelli/heya.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F35427BD1C7DB44E5F9C3F5CAC23797AC9ADDDFB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F35427BD1C7DB44E5F9C3F5CAC23797AC9ADDDFB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>heya</string>
+		</dict>
+	</array>
+</dict>
+</plist>

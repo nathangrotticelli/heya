@@ -40,7 +40,7 @@
   <!-- <hr class="div12"> -->
 
 <!-- data = data.substr(0, 4) + " " + data.substr(4, 6) -->
-  <div ng-show="toggle2==true" class="eventScroller" ng-repeat="watch in singlePerson.likes.slice().reverse()" ng-click="go_here2(watch)" >
+  <div ng-show="toggle2==true" class="eventScroller" ng-repeat="watch in singlePerson.likes.slice().reverse() | limitTo: 30" ng-click="go_here2(watch)" >
 
     <div class="front">
     <img class="full-image" src="{{watch.watchPhoto}}">
@@ -75,7 +75,7 @@
 
 </div>
 <ion-list ng-show="toggle2==false" >
-   <ion-item class="collections" ng-click="expandLoginCollection(collection)" can-swipe="false" ng-repeat="collection in singlePerson.collections.slice().reverse()">
+   <ion-item class="collections" ng-click="expandLoginCollection(collection)" can-swipe="false" ng-repeat="collection in singlePerson.collections.slice().reverse() | limitTo: 20">
    <!--  <ion-option-button class="profCollectionBtn profCollectionShare ion-android-share" ng-click="shareBtn('Made an awesome collection of watches on Dimepiece called '+collection.collectionName+'. Check the app out for yourself at http://unightlife.io/app.', 'Looking for cool watches?',null, null);">
     </ion-option-button>
     <ion-option-button class="profCollectionBtn profCollectionDelete ion-minus-circled"
