@@ -2030,7 +2030,7 @@ html {
   /*vertical-align: center;*/
   /*top:%;*/
   /*border-bottom: 1px solid #141414;*/
-  font-size: 17px;
+  font-size: 19px;
   font-weight: bold;
   font-family: 'Gafata', sans-serif;
   /*opacity: 1;/*/
@@ -2206,8 +2206,8 @@ html {
 
 
 .shopCatImg{
-    width: 50%;
-    max-height:105px;
+    max-width: 48%;
+    max-height:102px;
     margin: auto!important;
     margin-top: 20px!important;
     /*padding-bottsom: 0!important;*/
@@ -2482,7 +2482,7 @@ button{
   /*background-size: cover;*/
   /*background-position: auto auto;*/
   width: 100%;
-  margin-bottom: 5%;
+  /*margin-bottom: %;*/
    -webkit-animation: faderInto 1.6s;
   /*height: 100%;*/
   /*height:100%!important;*/
