@@ -43,13 +43,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/nl.x-services.plugins.launchmyapp/www/ios/LaunchMyApp.js",
-        "id": "nl.x-services.plugins.launchmyapp.LaunchMyApp",
-        "clobbers": [
-            "window.plugins.launchmyapp"
-        ]
-    },
-    {
         "file": "plugins/com.ionic.keyboard/www/keyboard.js",
         "id": "com.ionic.keyboard.keyboard",
         "clobbers": [
@@ -117,6 +110,13 @@ module.exports = [
         "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
         "clobbers": [
             "analytics"
+        ]
+    },
+    {
+        "file": "plugins/nl.x-services.plugins.launchmyapp/www/ios/LaunchMyApp.js",
+        "id": "nl.x-services.plugins.launchmyapp.LaunchMyApp",
+        "clobbers": [
+            "window.plugins.launchmyapp"
         ]
     },
     {
@@ -275,13 +275,13 @@ module.exports.metadata =
     "nl.x-services.plugins.socialsharing": "4.0.8",
     "nl.x-services.plugins.calendar": "4.2.5",
     "org.apache.cordova.splashscreen": "0.3.1",
-    "nl.x-services.plugins.launchmyapp": "3.2.0",
     "com.ionic.keyboard": "1.0.3",
     "org.apache.cordova.dialogs": "0.2.11",
     "com.synconset.imagepicker": "1.0.6",
     "org.apache.cordova.camera": "0.3.4",
     "org.apache.cordova.file-transfer": "0.4.8",
     "com.danielcwilson.plugins.googleanalytics": "0.7.0",
+    "nl.x-services.plugins.launchmyapp": "3.2.2",
     "org.apache.cordova.file": "1.3.2"
 }
 // BOTTOM OF METADATA
