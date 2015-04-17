@@ -134,9 +134,12 @@ angular.module('sociogram.controllers', ['ionic'])
     // };
 
      $scope.shareBtn = function(a,b,c,d){
-      analytics.trackEvent('button', 'click', 'share button', 1);
+      // analytics.trackEvent('button', 'click', 'share button', 1);
       // ga('send', 'event', 'button', 'click', 'share button', 1);
      window.plugins.socialsharing.share(a,b,c,d);
+       if(typeof analytics !== undefined) {
+                   analytics.trackEvent("ShareClick", "Singe Watch Share Button Clicked", b, 1);
+                }
     };
 
 
@@ -380,6 +383,9 @@ $scope.closeMe = function(){
          PetService.setUser(res1.data.user);
               $scope.modal2.remove();
           $state.go('app.login');
+            if(typeof analytics !== undefined) {
+                   analytics.trackEvent("UserLogIn", "Successful User Re-Log In", res1.data.user.username, 1);
+                }
             //  setTimeout(function() {
             //    $ionicScrollDelegate.scrollTop();
             // }, 200);
@@ -387,10 +393,6 @@ $scope.closeMe = function(){
        }
       })
     }
-  };
-
-  $scope.startModal2 = function(){
-
   };
 
   $scope.joinDimepiece = function(){
@@ -444,8 +446,12 @@ $scope.profPic = PetService.getProfPic();
     // $scope.main = {};
     // alert(window.StatusBar);
 
+
 $scope.goAmazon = function(link){
   window.open(link,"_system");
+    if(typeof analytics !== undefined) {
+         analytics.trackEvent("AmazonClick", "Singe Watch Amazon Button Clicked", link, 1);
+      }
 };
 
 $scope.hasPics = function(watchLikes){
@@ -538,6 +544,9 @@ $scope.goLoginPerson = function(like){
             $state.go('app.loginPerson');
              setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
+                if(typeof analytics !== undefined) {
+                   analytics.trackEvent("PersonClicked", "Profile Person Clicked", res2.data.user.username, 1);
+                }
             }, 200);
           }
 
@@ -595,6 +604,9 @@ $scope.goShopPerson = function(like){
             $state.go('app.shopPerson');
              setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
+                if(typeof analytics !== undefined) {
+                   analytics.trackEvent("PersonClicked", "Profile Person Clicked", res2.data.user.username, 1);
+                }
             }, 200);
 
            // alert()
@@ -650,6 +662,10 @@ $scope.goProfilePerson = function(like){
            $state.go('app.profilePerson');
               setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
+                if(typeof analytics !== undefined) {
+                   analytics.trackEvent("PersonClicked", "Profile Person Clicked", res3.data.user.username, 1);
+                  // analytics.trackView("Watch Login Feed");
+                }
             }, 200);
 
           }
@@ -670,6 +686,7 @@ $scope.goCat = function(catName,catTag){
          // $scope.main.backBtn = false;
           // $state.go("app.shopDetail");
           // alert(catName);
+                 // analytics.trackEvent(catName, 'Shop category viewed.', 'Label', 1);
         if(catName==$scope.catHeader){
           $state.go('app.singleShopCat');
        }else{
@@ -678,6 +695,10 @@ $scope.goCat = function(catName,catTag){
           $state.go('app.singleShopCat');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
+                if(typeof analytics !== undefined) {
+                   analytics.trackEvent("WatchCategory", "watch cat clicked", catName, 1);
+                  // analytics.trackView("Watch Login Feed");
+                }
             }, 200);
       }
 };
@@ -806,6 +827,9 @@ $scope.relatedCategory = function(catAbrv){
       // analytics.trackEvent('button', 'click', 'share button', 1);
       // ga('send', 'event', 'button', 'click', 'share button', 1);
      window.plugins.socialsharing.share(a,b,c,d);
+      if(typeof analytics !== undefined) {
+                   analytics.trackEvent("ShareClick", "Singe Watch Share Button Clicked", b, 1);
+                }
     };
 
     $scope.getWatches = function(){
@@ -1445,6 +1469,13 @@ $scope.newCollBtn = function(){
 }
 // cordova.plugins.Keyboard.close();
 // cordova.plugins.Keyboard.automaticScrollToTopOnHiding = true;
+
+
+         // analytics.trackView('Event Feed Accessed');
+                 // window.analytics.startTrackerWithId('UA-61746544-2');
+            // window.analytics.trackView('Screen Title');
+            // alert(JSON.stringify(window));
+
      $scope.toggle=PetService.getProfileView();
      $scope.toggle2=PetService.getProfileView2();
      $scope.toggle3=PetService.getProfileView3();
@@ -1466,10 +1497,14 @@ $scope.newCollBtn = function(){
     if(PetService.getWatchList().length==0){
          setTimeout(function() {
           navigator.splashscreen.hide();
+            if(typeof analytics !== undefined) {
+              analytics.trackView("Watch Login Feed");
+            }
         }, 1000);
       $scope.getWatches();
       $scope.getWatchCats();
     }
+
     $scope.feed =  PetService.getFeed();
     $scope.watchList = PetService.getWatchList();
     $scope.shopCatList = PetService.getCatList();
@@ -1480,9 +1515,16 @@ $scope.newCollBtn = function(){
     $scope.createNew=false;
     $scope.newCollectionName=null;
     $scope.searchShow = false;
+
+    // if(typeof analytics !== undefined) { analytics.startTrackerWithId("UA-61746544-2"); analytics.trackView("Awesome Controller"); }
      // $scope.showNav();
 
     // $scope.addCollWatch = PetService.getAddColl();
+         // Google Analytics Trackers, controller init setup
+
+
+
+
 
      $ionicPopover.fromTemplateUrl('my-popover.html', {
     scope: $scope
@@ -1490,6 +1532,8 @@ $scope.newCollBtn = function(){
     $scope.popover = popover;
 
   });
+
+    // analytics.trackView('Dimepiece Accessed');
 
 //     $timeout(function(){
 //   $ionicScrollDelegate.scrollTop();

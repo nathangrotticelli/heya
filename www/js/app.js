@@ -22,6 +22,7 @@ angular.module('sociogram', ['ionic', 'openfb','objectFilters','sociogram.contro
 
 // alert(wino);
   $ionicPlatform.ready(function () {
+
       if(window.cordova.plugins.Keyboard) {
          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
          cordova.plugins.Keyboard.disableScroll(true);
@@ -39,6 +40,34 @@ angular.module('sociogram', ['ionic', 'openfb','objectFilters','sociogram.contro
                 // StatusBar.styleLightContent();
                 StatusBar.styleDefault();
             }
+            if (typeof analytics !== undefined){
+              analytics.startTrackerWithId('UA-61870137-1');
+            }
+            else
+            {
+             console.log("Google Analytics plugin could not be loaded.")
+            }
+            //  if (typeof analytics !== 'undefined'){
+            //   analytics.startTrackerWithId('UA-61870137-1');
+            // }
+            // else
+            // {
+            //  console.log("Google Analytics plugin could not be loaded.")
+            // }
+            // if(window.analytics){
+            //  analytics.startTrackerWithId('UA-61870137-1');
+            // }
+
+            // if(window.analytics){
+            //
+            // }
+            // if(analytics){
+            //   analytics.startTrackerWithId('UA-53156722-1');
+            // }
+
+
+
+
 // && toState.name !== "app.logout"
         });
 

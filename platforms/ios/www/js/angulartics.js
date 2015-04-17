@@ -1,3 +1,4 @@
+a
 /**
  * @license Angulartics v0.15.17
  * (c) 2013 Luis Farzati http://luisfarzati.github.io/angulartics
@@ -82,7 +83,7 @@ angular.module('angulartics', [])
     if ($analytics.settings.trackRelativePath) {
         $analytics.pageTrack($location.url());
     } else {
-	$analytics.pageTrack($location.absUrl());
+  $analytics.pageTrack($location.absUrl());
     }
   }
   if ($analytics.settings.pageTracking.autoTrackVirtualPages) {

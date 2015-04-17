@@ -29,13 +29,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
-        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
-        "clobbers": [
-            "analytics"
-        ]
-    },
-    {
         "file": "plugins/nl.x-services.plugins.calendar/www/Calendar.js",
         "id": "nl.x-services.plugins.calendar.Calendar",
         "clobbers": [
@@ -117,6 +110,13 @@ module.exports = [
         "id": "org.apache.cordova.file-transfer.FileTransfer",
         "clobbers": [
             "window.FileTransfer"
+        ]
+    },
+    {
+        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
+        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
+        "clobbers": [
+            "analytics"
         ]
     },
     {
@@ -273,7 +273,6 @@ module.exports.metadata =
     "org.apache.cordova.statusbar": "0.1.3",
     "org.apache.cordova.inappbrowser": "0.3.3",
     "nl.x-services.plugins.socialsharing": "4.0.8",
-    "com.danielcwilson.plugins.googleanalytics": "0.4.1",
     "nl.x-services.plugins.calendar": "4.2.5",
     "org.apache.cordova.splashscreen": "0.3.1",
     "nl.x-services.plugins.launchmyapp": "3.2.0",
@@ -282,6 +281,7 @@ module.exports.metadata =
     "com.synconset.imagepicker": "1.0.6",
     "org.apache.cordova.camera": "0.3.4",
     "org.apache.cordova.file-transfer": "0.4.8",
+    "com.danielcwilson.plugins.googleanalytics": "0.7.0",
     "org.apache.cordova.file": "1.3.2"
 }
 // BOTTOM OF METADATA
