@@ -140,6 +140,7 @@ angular.module('sociogram.controllers', ['ionic'])
        if(typeof analytics !== undefined) {
                    analytics.trackEvent("ShareClick", "Singe Watch Share Button Clicked", b, 1);
                 }
+                $http.post('http://stark-eyrie-6720.herokuapp.com/shareCount');
     };
 
 
@@ -386,6 +387,7 @@ $scope.closeMe = function(){
             if(typeof analytics !== undefined) {
                    analytics.trackEvent("UserLogIn", "Successful User Re-Log In", res1.data.user.username, 1);
                 }
+                $http.post('http://stark-eyrie-6720.herokuapp.com/loginCount');
             //  setTimeout(function() {
             //    $ionicScrollDelegate.scrollTop();
             // }, 200);
@@ -452,6 +454,7 @@ $scope.goAmazon = function(link){
     if(typeof analytics !== undefined) {
          analytics.trackEvent("AmazonClick", "Singe Watch Amazon Button Clicked", link, 1);
       }
+      $http.post('http://stark-eyrie-6720.herokuapp.com/productLinkCount');
 };
 
 $scope.hasPics = function(watchLikes){
@@ -830,6 +833,7 @@ $scope.relatedCategory = function(catAbrv){
       if(typeof analytics !== undefined) {
                    analytics.trackEvent("ShareClick", "Singe Watch Share Button Clicked", b, 1);
                 }
+                $http.post('http://stark-eyrie-6720.herokuapp.com/shareCount');
     };
 
     $scope.getWatches = function(){
@@ -1500,7 +1504,8 @@ $scope.newCollBtn = function(){
             if(typeof analytics !== undefined) {
               analytics.trackView("Watch Login Feed");
             }
-        }, 1000);
+             $http.post('http://stark-eyrie-6720.herokuapp.com/openCount');
+          }, 1000);
       $scope.getWatches();
       $scope.getWatchCats();
     }
