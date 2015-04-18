@@ -18,14 +18,13 @@
 
 <body ng-app="sociogram"  class="platform-ios platform-cordova platform-webview">
 
-<ion-nav-view id="main" animation="no-animation"></ion-nav-view>
+<ion-nav-view id="main" animation="fade-implode"></ion-nav-view>
 
 <ion-nav-bar ng-controller="BackCtrl" class="backBar" ng-click="goBack();">
   <ion-nav-back-button class="backBar2">
      <a class="topBtn ion-ios7-arrow-left" >
     </a>
    </ion-nav-back-button>
-
 </ion-nav-bar>
 
 
@@ -39,8 +38,8 @@
 <script src="js/openfb-angular.js"></script>
 <script src="./js/services.js"></script>
 <script src="js/controllers.js"></script>
-<script src="js/focusDirective.js"></script>
-<script src="js/ionic.swipecards.js"></script>
+<!-- <script src="js/focusDirective.js"></script> -->
+<!-- <script src="js/ionic.swipecards.js"></script> -->
 
 
 <script id="addCollection.html" type="text/ng-template">
@@ -54,19 +53,18 @@
    <br>
    <div ng-if="createNew==false"><a ng-click="newCollBtn()" class="createCollBtn">Create new collection</a><br></div>
     <form ng-if="createNew==true" ng-submit="createNewCollection(newCollectionName,addCollWatch); newCollectionName=null;">
-    <input class="createNewField" type="text" ng-model="newCollectionName" focus-me="true" placeholder="New Collection Name">
+    <input class="createNewField" type="text" ng-model="newCollectionName" focus-me placeholder="New Collection Name">
     </form>
    <br>
-   <div class="collections" ng-click="$event.stopPropagation(); addColl(collection,addCollWatch);" ng-repeat="collection in user.collections.slice().reverse()">
-     <h1 ng-if="alreadyCollected(collection,addCollWatch)!=true" class="radioColl icon ion-ios7-circle-outline"></h1>
-    <h1 ng-if="alreadyCollected(collection,addCollWatch)==true"  class="radioColl icon activeTab ion-checkmark-circled"></h1>
-      <h2 class="addCollectionName">{{collection.collectionName}}</h2>
 
-   <div class="collectionSection" ng-repeat="watch in collection.watches.slice().reverse() | limitTo: 4 ">
-   <img class="collectionItem" src="{{collectionWatchPic(watch)}}">
-   </div>
-   <div ng-if="collection.watches.length<1" class="collectionItem2">
-   </div>
+   <div class="collections" ng-click="$event.stopPropagation(); addColl(collection,addCollWatch);" ng-repeat="collection in user.collections.slice().reverse()">
+
+     <h1 ng-if="collection.watches.indexOf(addCollWatch.watchName)<0" class="radioColl icon ion-ios7-circle-outline"></h1>
+    <h1 ng-if="collection.watches.indexOf(addCollWatch.watchName)>-1"  class="radioColl icon activeTab ion-checkmark-circled"></h1>
+      <h2 class="addCollectionName">{{collection.collectionName}}</h2>
+   <div class="collectionSection" ng-repeat="watch in collection.watches.slice().reverse() | limitTo: 4"><img class="collectionItem" src="{{collectionWatchPic(watch)}}"></div>
+   <div ng-if="collection.watches.length<1" class="collectionItem2"></div>
+
    </div>
    <div class="bufferColl"></div>
 

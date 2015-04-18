@@ -34,7 +34,7 @@
                <i ng-click="removeWish(singleWatch2); " ng-show="liked(singleWatch2)" class="icon red ion-ios7-heart"></i>
                 <!-- </div> -->
                <i ng-click="openAddCollection(singleWatch2)" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',singleWatch2.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',singleWatch2.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
 
@@ -56,7 +56,7 @@
                   <p ng-if="singleWatch2.watchLikes.length>1">{{singleWatch2.watchLikes.length}} likes</p>
                   <p ng-if="singleWatch2.watchLikes.length<2">{{singleWatch2.watchLikes.length}} like</p>
                   <div ng-if="hasPics(singleWatch2.watchLikes)>0" ng-click="goLoginPerson(like)" ng-repeat="like in singleWatch2.watchLikes | filter:hasUserPic | limitTo:4">
-                    <img ng-if="like.userPic.length>0" class="profImg floatLeft" ng-src="data:image/jpg;base64,{{like.userPic}}">
+                    <img ng-if="like.userPic.length>0" class="profImg2 floatLeft" ng-src="data:image/jpg;base64,{{like.userPic}}">
                   </div>
                   <div ng-if="hasPics(singleWatch2.watchLikes)<4" ng-click="goLoginPerson(like)" ng-repeat="like in singleWatch2.watchLikes | filter:hasNoUserPic | limitTo: hasPics2(singleWatch2.watchLikes)">
                     <a ng-if="like.userPic.length==0" class="floatLeft gray ion-android-image"></a>

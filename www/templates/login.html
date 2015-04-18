@@ -51,7 +51,7 @@
     <img class="full-image" src="{{watch.watchPhoto}}">
     <!-- <img ng-hide="event.cover!=undefined" ng-click="go_here(event)" class="full-image" src="http://i62.tinypic.com/2zznq55.jpg" > -->
 
-          <div class="eventInfoSection" ng-init="">
+          <div class="eventInfoSection">
             <!-- watchAction(event); -->
              <!-- <a ng-hide="event.watched" ng-click="$event.stopPropagation();" class="ion-ios7-eye-outline watchBtn"></a> -->
              <!-- <a ng-click="" class="ion-ios7-eye watchBtn"></a> -->
@@ -67,7 +67,7 @@
                <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="liked(watch)" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="liked(watch)" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
       <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
@@ -76,6 +76,10 @@
     </div>
   </div>
 
+</div>
+<div ng-if="watchList.length==0||watchList.length==undefined">
+<br><br><br>
+<h1 class="ion-loading-c"></h1>
 </div>
 
 

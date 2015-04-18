@@ -1,4 +1,4 @@
-angular.module('sociogram', ['ionic', 'openfb','objectFilters','sociogram.controllers','sociogram.services','ionic.contrib.ui.cards'])
+angular.module('sociogram', ['ionic', 'openfb','objectFilters','sociogram.controllers','sociogram.services'])
 
     .run(function ($rootScope, $state, $ionicPlatform, $window, OpenFB) {
 

@@ -13,6 +13,7 @@
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
+       <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
@@ -25,9 +26,4 @@
 <feature name="FileTransfer">
     <param name="ios-package" value="CDVFileTransfer" />
 </feature>
-  <feature name="Custom URL scheme">
-    <param name="id" value="nl.x-services.plugins.launchmyapp" />
-    <param name="url" value="https://github.com/EddyVerbruggen/LaunchMyApp-PhoneGap-Plugin.git" />
-    <variable name="dimepiece" value="dimepiece" /><!-- change as appropriate -->
-  </feature>
 </widget>

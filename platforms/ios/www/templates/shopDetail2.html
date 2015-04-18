@@ -34,7 +34,7 @@
                <i ng-click="removeWish(singleShopWatch2); " ng-show="singleShopWatch2.liked==true" class="icon red ion-ios7-heart"></i>
                 <!-- </div> -->
                <i ng-click=" openAddCollection(singleShopWatch2)" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',singleShopWatch2.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',singleShopWatch2.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
 
@@ -56,7 +56,7 @@
                     <p ng-if="singleShopWatch2.watchLikes.length>1">{{singleShopWatch2.watchLikes.length}} likes</p>
                   <p ng-if="singleShopWatch2.watchLikes.length<2">{{singleShopWatch2.watchLikes.length}} like</p>
                   <div ng-if="hasPics(singleShopWatch2.watchLikes)>0" ng-click="goShopPerson(like)" ng-repeat="like in singleShopWatch2.watchLikes | filter:hasUserPic | limitTo:4">
-                    <img ng-if="like.userPic.length>0" class="profImg floatLeft" ng-src="data:image/jpg;base64,{{like.userPic}}">
+                    <img ng-if="like.userPic.length>0" class="profImg2 floatLeft" ng-src="data:image/jpg;base64,{{like.userPic}}">
                   </div>
                   <div ng-if="hasPics(singleShopWatch2.watchLikes)<4" ng-click="goShopPerson(like)" ng-repeat="like in singleShopWatch2.watchLikes | filter:hasNoUserPic | limitTo: hasPics2(singleShopWatch2.watchLikes)">
                     <a ng-if="like.userPic.length==0" class="floatLeft gray ion-android-image"></a>
@@ -70,7 +70,7 @@
 
                 <div ng-repeat="collection in singleShopWatch2.tags | limitTo: 2">
                   <h2 class="relatedCollectionName">{{relatedCategory(collection)}}</h2>
-                  <div class="collectionSection" ng-repeat="watch in watchList| filter: {tags:collection} | filter: relatedCol | limitTo: 3">
+                  <div class="collectionSection" ng-repeat="watch in watchList| filter: {tags:collection} | filter: relatedShopCol | limitTo: 3">
                     <img ng-click="expandCat(watch)" class="collectionItem4" src="{{collectionWatchPic(watch)}}">
                   </div>
                 </div>

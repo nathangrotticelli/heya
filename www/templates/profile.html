@@ -9,7 +9,7 @@
      <a class="topProfile" ng-click="settingProf()">
     <i class="ion-gear-a"></i>
   </a>
-        <img ng-show="user.userPic.length==0" class="profSpot ion-image">
+        <i ng-show="user.userPic.length==0" class="profSpot ion-image"></i>
         <img ng-show="user.userPic.length>0" class="profImg ion-image" ng-src="data:image/jpg;base64,{{user.userPic}}">
 
           <h2 class="profileName">{{user.userFullName}}</h2>
@@ -66,7 +66,7 @@
                <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="watch.liked" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="watch.liked" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
       <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
@@ -78,7 +78,7 @@
 </div>
 <ion-list ng-show="toggle==false">
    <ion-item class="collections" ng-click="expandProfileCollection(collection)" can-swipe="true" ng-repeat="collection in user.collections.slice().reverse()">
-    <ion-option-button class="profCollectionBtn profCollectionShare ion-android-share" ng-click="shareBtn('Made an awesome collection of watches on Dimepiece called '+collection.collectionName+'. Check the app out for yourself at http://unightlife.io/app.', 'Looking for cool watches?',null, null);">
+    <ion-option-button class="profCollectionBtn profCollectionShare ion-android-share" ng-click="shareBtn('Made an awesome collection of watches on Dimepiece called '+collection.collectionName+'. Check it out for yourself: dimepiece.co', 'Looking for cool watches?',null, null);">
     </ion-option-button>
     <ion-option-button class="profCollectionBtn profCollectionDelete ion-minus-circled"
                        ng-click="deleteCollection(collection)">
@@ -90,7 +90,7 @@
    <div ng-if="collection.watches.length<1" class="collectionItem2">
    </div>
    </ion-item>
-   <div class="bufferColl"></div>
+   <div ng-if="user.collections.length>0" class="bufferColl"></div>
 </ion-list>
 
 

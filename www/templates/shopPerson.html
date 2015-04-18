@@ -7,7 +7,8 @@
   </ion-refresher>
    <div class="personDiv" ng-hide="singleShopPerson.username==undefined">
   <div class="profileBody2">
-        <img ng-show="singleShopPerson.userPic.length==0" class="profSpot ion-image">
+        <!-- <img ng-show="singleShopPerson.userPic.length==0" class="profSpot ion-image"> -->
+             <i ng-show="singleShopPerson.userPic.length==0" class="profSpot ion-image"></i>
         <img ng-show="singleShopPerson.userPic.length>0" class="profImg ion-image" ng-src="data:image/jpg;base64,{{singleShopPerson.userPic}}">
 
           <h2 class="profileName">{{singleShopPerson.userFullName}}</h2>
@@ -64,7 +65,7 @@
                <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="watch.liked" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="watch.liked" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
       <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
@@ -88,7 +89,7 @@
    <div ng-if="collection.watches.length<1" class="collectionItem2">
    </div>
    </ion-item>
-   <div class="bufferColl"></div>
+   <div ng-if="singleShopPerson.collections.length>0" class="bufferColl"></div>
 </ion-list>
 </div>
  <div ng-show="singleShopPerson.username==undefined">

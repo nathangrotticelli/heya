@@ -1098,7 +1098,11 @@ form{
   /*top: 15%;*/
   /*text-align: center!im*/
   /*margin-left:38%;*/
-  font-size: 90px;
+     /*border: gray 1px solid;*/
+  /*height:50px;*/
+  /*width: 50px;*/
+  margin-bottom: 5px;
+  font-size: 55px;
   color:gray;
    /*border: #141414 1.5px solid;*/
  /*padding-bottom: 100px!important;*/
@@ -1341,7 +1345,7 @@ border-top: 1px solid lightgray!important;
   /*text-decoration: underline;*/
 }
 .profilePage{
-   -webkit-animation: faderInto 1.6s;
+   /*-webkit-animation: faderInto 2.2s;*/
 }
 .eventInfoSection{
   /*padding-top: 1%;*/
@@ -1355,7 +1359,7 @@ border-top: 1px solid lightgray!important;
 /*border-top: 0px;*/
 }
 .shopFull{
-    -webkit-animation: faderInto 1.6s;
+    -webkit-animation: faderInto 1.35s;
 }
 /*.moveDown{
   margin-top:2%;
@@ -1365,7 +1369,7 @@ border-top: 1px solid lightgray!important;
 .mesh{
   /*height:auto!important;*/
   background-color: white;
-    -webkit-animation: faderInto 1.6s;
+    -webkit-animation: faderInto 1.35s;
  /*margin-top:0%;*/
   /*opacity: .9;*/
   /*-webkit-animation: show 1.2s 1;*/
@@ -1970,7 +1974,13 @@ html {
   /*border: gray 1px solid;*/
   height:50px!important;
   width: 50px!important;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
+}
+.profImg2{
+  /*border: gray 1px solid;*/
+  height:50px!important;
+  width: 50px!important;
+  margin-bottom: 20px;
 }
 .profileUsername{
   font-size: 13px;
@@ -2066,7 +2076,7 @@ html {
   background-color: #ecf0f1;
   opacity: 1;
   width: auto!important;
-    /*-webkit-animation: faderInto 1.3s;*/
+    -webkit-animation: faderInto 1.2s;
   /*height: 100%!important;*/
   /*z-index: 999;*/
 
@@ -2482,7 +2492,7 @@ button{
   /*background-position: auto auto;*/
   width: 100%;
   /*margin-bottom: %;*/
-   -webkit-animation: faderInto 1.6s;
+   /*-webkit-animation: faderInto 2.2s;*/
   /*height: 100%;*/
   /*height:100%!important;*/
   /*height: 85%;*/
@@ -2608,7 +2618,7 @@ button{
   /*width: 100px!important;*/
     background-color: transparent;
   /*border:1px solid blue!important;*/
-  -webkit-animation: faderInto 2s;
+  -webkit-animation: faderInto 1.9s;
   /*opacity: .9!important;*/
   /*padding-right: 3%;*/
   /*margin-right: 3%;*/

@@ -17,7 +17,7 @@
 
 <div class = "unMenu22 ">
   <div>{{catHeader}}
-    <a ng-click="$event.stopPropagation(); shareBtn('Looking for a '+catHeader+' gift? Check Out Dimepiece! http://unightlife.io/app.', 'Looking for a '+catHeader+' gift?',null, null);" class="searchIcon ion-ios7-upload-outline"></a>
+   <!--  <a ng-click="shareBtn('Looking for a '+catHeader+' gift? Check Out Dimepiece! (dimepiece.co)', 'Looking for a '+catHeader+' gift?',null, null);" class="searchIcon ion-ios7-upload-outline"></a> -->
   </div>
   </div>
 
@@ -52,7 +52,7 @@
                <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="watch.liked" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="watch.liked" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
       <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->

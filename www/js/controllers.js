@@ -122,7 +122,7 @@ angular.module('sociogram.controllers', ['ionic'])
 //     // }
 
 //  //     // myPopup.close(); //close the popup after 3 seconds for some reason
-//  //  }, 500);
+//  //  }, 650);
 //     };
 
     // $scope.goAdd = function(){
@@ -304,21 +304,23 @@ $scope.closeMe = function(){
             userPass: password,
             userPic: $scope.profPic
             }).then(function(res3){
-              // alert(res3.data.user);
-              // alert(res.user);
-               PetService.setUser(res3.data.user);
+              if(res3.data.failed){
+                navigator.notification.alert(
+                  res3.data.failed,  // message
+                  null,         // callback
+                  "Couldn't Create Account"                 // buttonName
+                );
+                // alert(res3.data.failed);
+              }else{
+                PetService.setUser(res3.data.user);
                $scope.modal.remove();
                $state.go('app.login');
+              }
+              // alert(res3.data.user);
+              // alert(res.user);
+
               // alert('success' );
-            }).error(function(){
-              // if(uploadRetry < 3){
-                    // uploadRetry++;
-                    // alert("retry");
-                     // $scope.createAccount(name,username,email,password);
-                // } else {
-                 alert("An error has occurred: Code = " + error.code);
-                // }
-              })
+            });
         }
       };
 
@@ -350,8 +352,9 @@ $scope.closeMe = function(){
   };
 
   $scope.logTry= function(username,password){
-         username = "ng225";
-     password = "ikh";//change these///////////////////
+         // username = "ng225";
+     // password = "ikh";
+     //auto login dummy creds///////////////////
     if(!username||!password){
        navigator.notification.alert(
             "Account/password can't be blank.",
@@ -366,7 +369,7 @@ $scope.closeMe = function(){
         navigator.notification.alert(
           null,  // message
           null,         // callback
-          'Sorry, your username or password was incorrect.'               // buttonName
+          'Sorry, your username/email or password was incorrect.'               // buttonName
         );
        }
        else{
@@ -390,7 +393,7 @@ $scope.closeMe = function(){
                 $http.post('http://stark-eyrie-6720.herokuapp.com/loginCount');
             //  setTimeout(function() {
             //    $ionicScrollDelegate.scrollTop();
-            // }, 200);
+            // }, 65);
 
        }
       })
@@ -550,7 +553,7 @@ $scope.goLoginPerson = function(like){
                 if(typeof analytics !== undefined) {
                    analytics.trackEvent("PersonClicked", "Profile Person Clicked", res2.data.user.username, 1);
                 }
-            }, 200);
+            }, 65);
           }
 
            // alert()
@@ -610,7 +613,7 @@ $scope.goShopPerson = function(like){
                 if(typeof analytics !== undefined) {
                    analytics.trackEvent("PersonClicked", "Profile Person Clicked", res2.data.user.username, 1);
                 }
-            }, 200);
+            }, 65);
 
            // alert()
          }
@@ -669,7 +672,7 @@ $scope.goProfilePerson = function(like){
                    analytics.trackEvent("PersonClicked", "Profile Person Clicked", res3.data.user.username, 1);
                   // analytics.trackView("Watch Login Feed");
                 }
-            }, 200);
+            }, 65);
 
           }
 
@@ -702,7 +705,7 @@ $scope.goCat = function(catName,catTag){
                    analytics.trackEvent("WatchCategory", "watch cat clicked", catName, 1);
                   // analytics.trackView("Watch Login Feed");
                 }
-            }, 200);
+            }, 65);
       }
 };
 
@@ -714,7 +717,7 @@ $scope.goCat = function(catName,catTag){
            $state.go('app.shopDetail');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
-            }, 200);
+            }, 65);
       }
     };
 
@@ -726,7 +729,7 @@ $scope.goCat = function(catName,catTag){
            $state.go('app.shopDetail2');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
-            }, 200);
+            }, 65);
       }
     };
 
@@ -734,9 +737,13 @@ $scope.watchCat = function(watch){
   return (watch.tags.indexOf($scope.catTag)>-1);
 };
 $scope.relatedCol= function(watch){
-  // alert(collection);
-  return (watch!=$scope.singleWatch);
-  // return (watch.tags.indexOf($scope.singleWatch.tags[1])>-1&&watch!=$scope.singleWatch);
+  return (watch.watchName!=$scope.singleWatch.watchName&&watch.watchName!=$scope.singleWatch2.watchName);
+};
+$scope.relatedShopCol= function(watch){
+  return (watch.watchName!=$scope.singleShopWatch.watchName&&watch.watchName!=$scope.singleShopWatch2.watchName);
+};
+$scope.relatedProfCol= function(watch){
+  return (watch.watchName!=$scope.singleProfileWatch.watchName&&watch.watchName!=$scope.singleProfileWatch2.watchName);
 };
 $scope.relatedCategory = function(catAbrv){
   var catList = PetService.getCatList();
@@ -755,7 +762,7 @@ $scope.relatedCategory = function(catAbrv){
            $state.go('app.profileDetail');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
-            }, 200);
+            }, 65);
       }
     };
         $scope.expandProf2 = function (watch) {
@@ -766,7 +773,7 @@ $scope.relatedCategory = function(catAbrv){
            $state.go('app.profileDetail2');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
-            }, 200);
+            }, 65);
       }
 
     };
@@ -786,6 +793,7 @@ $scope.relatedCategory = function(catAbrv){
           {testInfo: 'testInfo recieved'}).error(function(err){
             // alert(err);
             $scope.showAlert("Internet connection could not be acheived at this time. Try again later.",null);
+            $scope.$broadcast('scroll.refreshComplete');
           }).then(function (res1) {
           PetService.refreshWatches(res1.data.watchList.watchesIndex);
        }).then(function(){
@@ -860,8 +868,8 @@ $scope.relatedCategory = function(catAbrv){
 // $scope.setTabs = function(){}
 
       $scope.loginPrompt = function() {
+         // StatusBar.styleDefault();
            $state.go('app.loginPrompt');
-             StatusBar.styleDefault();
     };
     //   $scope.goLogin = function(){
 
@@ -906,7 +914,7 @@ $scope.relatedCategory = function(catAbrv){
         $state.go('app.eventDetail');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
-            }, 200);
+            }, 65);
       }
     };
          $scope.go_here2 = function (watch) {
@@ -917,7 +925,7 @@ $scope.relatedCategory = function(catAbrv){
         $state.go('app.eventDetail2');
          setTimeout(function() {
                $ionicScrollDelegate.scrollTop();
-            }, 200);
+            }, 65);
       }
     };
 
@@ -1257,8 +1265,6 @@ $scope.relatedCategory = function(catAbrv){
       if(collection.watches.indexOf(watch.watchName)>-1){
         return true;
       }
-
-
     }
 
     //used to throw better looking popup messages to user
@@ -1283,7 +1289,7 @@ $scope.relatedCategory = function(catAbrv){
       PetService.setProfileView($scope.toggle);
       setTimeout(function() {
                $ionicScrollDelegate.resize();
-            }, 150);
+            }, 165);
   // $scope.shouldBeOpen =
     };
      $scope.toggleProf2 = function(){
@@ -1291,21 +1297,21 @@ $scope.relatedCategory = function(catAbrv){
       PetService.setProfileView2($scope.toggle2);
       setTimeout(function() {
                $ionicScrollDelegate.resize();
-            }, 150);
+            }, 165);
     };
      $scope.toggleProf3 = function(){
       $scope.toggle3 = !$scope.toggle3;
       PetService.setProfileView3($scope.toggle3);
       setTimeout(function() {
                $ionicScrollDelegate.resize();
-            }, 150);
+            }, 165);
     };
      $scope.toggleProf4 = function(){
       $scope.toggle4 = !$scope.toggle4;
       PetService.setProfileView4($scope.toggle4);
       setTimeout(function() {
                $ionicScrollDelegate.resize();
-            }, 150);
+            }, 165);
   // $scope.shouldBeOpen =
     };
     $scope.openPopover = function($event) {
@@ -1405,7 +1411,7 @@ $scope.relatedCategory = function(catAbrv){
         if(profileColl.collectionName!==$scope.profileCollection.collectionName){
          setTimeout(function() {
           $ionicScrollDelegate.scrollTop();
-         }, 200);
+         }, 65);
         }
     };
     $scope.expandShopCollection = function(collection){
@@ -1417,7 +1423,7 @@ $scope.relatedCategory = function(catAbrv){
         if(shopColl.collectionName!==$scope.shopCollection.collectionName){
            setTimeout(function() {
             $ionicScrollDelegate.scrollTop();
-           }, 200);
+           }, 65);
         }
     };
      $scope.expandLoginCollection = function(collection){
@@ -1429,7 +1435,7 @@ $scope.relatedCategory = function(catAbrv){
         if(loginColl.collectionName!==$scope.shopCollection.collectionName){
            setTimeout(function() {
             $ionicScrollDelegate.scrollTop();
-           }, 200);
+           }, 65);
         }
      };
 
@@ -1467,7 +1473,7 @@ $scope.newCollBtn = function(){
   $scope.createNew = true;
    // setTimeout(function() {
                // $ionicScrollDelegate.resize();
-            // }, 200);
+            // }, 65);
   // $scope.shouldBeOpen = true;
  // $scope.$broadcast("newItemAdded");
 }
@@ -1516,7 +1522,7 @@ $scope.newCollBtn = function(){
     $scope.user = PetService.getUser();
     $scope.catHeader = PetService.getCatHead();
     $scope.catTag = PetService.getCatTag();
-    $scope.loadLimit=45;
+    $scope.loadLimit=40;
     $scope.createNew=false;
     $scope.newCollectionName=null;
     $scope.searchShow = false;
@@ -1542,7 +1548,7 @@ $scope.newCollBtn = function(){
 
 //     $timeout(function(){
 //   $ionicScrollDelegate.scrollTop();
-// },50)
+// },65)
 
 
 
@@ -1559,15 +1565,13 @@ $scope.newCollBtn = function(){
 
 .directive('focusMe', function($timeout) {
   return {
-    scope: { trigger: '@focusMe' },
-    link: function(scope, element) {
-      scope.$watch('trigger', function(value) {
-        if(value === "true") {
-          $timeout(function() {
-            element[0].focus();
-          });
-        }
-      });
+    link: function(scope, element, attrs) {
+      $timeout(function() {
+        element[0].focus();
+        // if(ionic.Platform.isAndroid()){
+        //    cordova.plugins.Keyboard.show();
+        // }
+      }, 150);
     }
   };
 });
