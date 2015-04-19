@@ -8,28 +8,13 @@
  <ion-scroll id='expandedEvent'  scrollbar-y="true">
 
 <br>
-<!-- <br> -->
 	    		<img class="singleImage" src="{{getCover(singleWatch.watchPhoto)}}">
-          <!-- <img ng-if="singleEvent.cover==true" src="http://i62.tinypic.com/2zznq55.jpg" > -->
-
-		<!-- 			<p class="watchName">
-	    			{{ singleWatch.name }}
-	    		</p>
-	    		<p class="likePrice">
-	    			{{ singleWatch.watchLikes.length }}
-	    		</p> -->
-
 
 						  <div ng-init="$scope.likesDis = 0"  class="watchFeedBtns2">
         <h2 class="watchName">{{singleWatch.watchName}}</h2>
         <h2 ng-if="singleWatch.watchLikes.length!=1" class="likePrice">{{singleWatch.watchLikes.length}} likes</h2>
         <h2 ng-if="singleWatch.watchLikes.length==1" class="likePrice">{{singleWatch.watchLikes.length}} like</h2>
 
-                <!--   <i ng-click="expandPrice(event)" ng-if="event.showPrice==false" class="icon ion-cash"></i>
-                  <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
-                 10.00
-               </i> -->
-                <!-- <div ng-click="watchAction(singleEvent)"> -->
                <i ng-click="addWish(singleWatch);" ng-hide="liked(singleWatch)" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="removeWish(singleWatch); " ng-show="liked(singleWatch)" class="icon red ion-ios7-heart"></i>
                 <!-- </div> -->
@@ -75,47 +60,6 @@
                     <img ng-click="go_here2(watch)" class="collectionItem4" src="{{collectionWatchPic(watch)}}">
                   </div>
                 </div>
-
-                <!-- <br> <br> -->
-                <!-- <br> -->
-							  <!-- <div class="ion-ios7-arrow-right">{{singleWatch.watchPrice}} on Amazon Prime -->
-							  	<!-- <div  class="ion-ios7-arrow-right priceArrow"></div> -->
-
-							  <!-- </div> -->
-							  <!-- </div> -->
-
-
-						<!--   <div ng-if="singleEvent.timeOfEvent!=null" class="item item-icon-left item-divider">
-			    			<i class="icon ion-ios7-alarm-outline"></i>
-			    			{{ singleEvent.timeOfEvent }}
-			    		</div> -->
-			    		<!-- <br ng-if="singleEvent.timeOfEvent!=null"> -->
-
-
-
-			    	<!-- 	<div ng-if="singleEvent.start_time!=null" ng-click="calAdd()" class="item item-icon-left item-divider">
-			    			<i class="icon ion-ios7-calendar-outline"></i>
-			    			{{ singleEvent.start_time }}</div>
-			    			<br>
-
-			    			 <div ng-if="singleEvent.ticketLink!=null" ng-click="goTicket()" class="item item-icon-left item-divider">
-			    			<i class="icon ion-ios7-barcode"></i>
-			    			Tickets
-			    		</div> -->
-			    		<!-- <br ng-if="singleEvent.ticketLink!=null"> -->
-
-
-	    			<!-- <div ng-if="singleEvent.location!=null" ng-click="mapThis()" class="item item-icon-left item-divider">
-			    			<i class="icon ion-ios7-location"></i>
-			    			{{ singleEvent.location }}
-			    		</div>
-			    			<br ng-if="singleEvent.location!=null">
-
-			    		<div ng-click="watchAction(singleEvent)" class="item item-icon-left item-divider" >
-			    			<div ng-if="singleEvent.watched!=true"><i class="icon ion-ios7-eye-outline"></i>Watch Event</div>
-			    			<div ng-if="singleEvent.watched==true"><i class="icon ion-ios7-eye"></i>You're Watching</div>
-							</div> -->
-			    			<!-- <br> -->
 
 
 </ion-scroll>

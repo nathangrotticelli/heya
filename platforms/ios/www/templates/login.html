@@ -1,17 +1,6 @@
 
 <ion-view hide-back-button="true" hide-nav-bar="true">
 
-<!-- <ion-header-bar align-title="left" class="bar-positive">
-  <div class="buttons">
-    <button class="button" ng-click="doSomething()">Left Button</button>
-  </div>
-  <div class="buttons">
-    <button class="button" ng-click="doSomething()">Left Button</button>
-  </div>
-  <div class="buttons">
-    <button class="button">Right Button</button>
-  </div>
-</ion-header-bar> -->
 
 <div class = "unMenu22 ">
   <div ng-click="openPopover($event)">{{feed}}
@@ -19,20 +8,6 @@
   </div>
   <!-- <a ng-click="searchShow=true" class="searchIcon ion-ios7-search"></a> -->
   </div>
-  <!-- <div class = "unMenu22b " ng-hide="!searchShow">
-    <div ng-click="" class="searchSection">
-    <input type="search" class="inputField" placeholder="Search products" ng-model="searchInput" ng-change="scrollTop()">
-   <p ng-click="searchShow=false" class="searchCancelButton">Cancel</p>
-  </div>
-</div> -->
-
-  <!-- <a ng-click="searchShow=true" class="searchIcon ion-ios7-search"></a> -->
-
-    <!--       <div class="bar searchSection">
-       <input type="search" class="inputField" placeholder="Search products" ng-model="searchInput" ng-change="scrollTop()">
-              <p ng-click="searchShow=false" class="searchCancelButton">Cancel</p>
-            <i class="icon ion-ios7-search searchFieldIcon placeholder-icon"></i> -->
-
 
 
  <ion-content scrollbar-y="true" scroll="true" class="mesh">
@@ -49,30 +24,21 @@
 
     <div class="front">
     <img class="full-image" src="{{watch.watchPhoto}}">
-    <!-- <img ng-hide="event.cover!=undefined" ng-click="go_here(event)" class="full-image" src="http://i62.tinypic.com/2zznq55.jpg" > -->
 
           <div class="eventInfoSection">
-            <!-- watchAction(event); -->
-             <!-- <a ng-hide="event.watched" ng-click="$event.stopPropagation();" class="ion-ios7-eye-outline watchBtn"></a> -->
-             <!-- <a ng-click="" class="ion-ios7-eye watchBtn"></a> -->
-      <!-- <h3 id="eventName">{{event.name}}</h3> -->
+
       <div class="watchFeedBtns item-text-wrap">
         <h2 class="watchName">{{watch.watchName}}</h2>
         <h2 ng-if="watch.watchLikes.length!=1" class="likePrice">{{watch.watchLikes.length}} likes / {{watch.watchPrice}}</h2>
         <h2 ng-if="watch.watchLikes.length==1" class="likePrice">{{watch.watchLikes.length}} like / {{watch.watchPrice}}</h2>
-                <!--   <i ng-click="expandPrice(event)" ng-if="event.showPrice==false" class="icon ion-cash"></i>
-                  <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
-                 10.00
-               </i> -->
+
                <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="liked(watch)" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="liked(watch)" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
                <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
-      <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
-      <!-- <p class="eventDT" ng-if="event.start_time!=null">{{event.start_time}}</p> -->
-       <!-- <p class="eventDT" ng-if="event.timeOfEvent!=null">{{event.timeOfEvent}}</p> -->
+
     </div>
   </div>
 
@@ -82,29 +48,6 @@
 <h1 class="ion-loading-c"></h1>
 </div>
 
-
- <!-- </ion-scroll> -->
-
-
-
- <!-- <ion-pane > -->
-
-<!-- <ng-include src="'event-detail.html'" ng-show="singleView == true && tinderView == false"></ng-include> -->
-
-
-
-      <!-- <h1 class="profHead">My Profile</h1> -->
-
-<!-- </ion-pane> -->
-
-
-<!--  -->
-
-
-
-   <!-- <div ng-if="friendView == false" class="notifications" ng-repeat="not in userItem.notifications | orderObjectBy:predicate1"> -->
-    <!-- <div ng-if="unFriends[0]!='none'" ng-repeat="friend in unFriends"> -->
-  <!-- <div ng-if="unFriends.length==0"> -->
 
 
 

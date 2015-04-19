@@ -6805,9 +6805,9 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
  * Android style "pop in" with fade and scale
  */
 .fade-implode > .ng-enter, .fade-implode.ng-enter, .fade-implode > .ng-leave, .fade-implode.ng-leave {
-  -webkit-transition: all ease-out 220ms;
-  -moz-transition: all ease-out 220ms;
-  transition: all ease-out 220ms;
+  -webkit-transition: all ease-out 350ms;
+  -moz-transition: all ease-out 350ms;
+  transition: all ease-out 350ms;
   position: absolute;
   top: 0;
   right: -1px;
@@ -6834,9 +6834,9 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   opacity: 1; }
 
 .fade-implode.reverse > .ng-enter, .fade-implode.reverse.ng-enter, .fade-implode.reverse > .ng-leave, .fade-implode.reverse.ng-leave {
-  -webkit-transition: all ease-out 220ms;
-  -moz-transition: all ease-out 220ms;
-  transition: all ease-out 220ms;
+  -webkit-transition: all ease-out 350ms;
+  -moz-transition: all ease-out 350ms;
+  transition: all ease-out 350ms;
   position: absolute;
   top: 0;
   right: -1px;

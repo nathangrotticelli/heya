@@ -1,11 +1,8 @@
 angular.module('sociogram.controllers', ['ionic'])
 
   //for side menu
-  .controller('AppCtrl', function ($scope, $state,$location,PetService, OpenFB, $timeout) {
+  .controller('AppCtrl', function ($scope, $state,PetService) {
 
-      // $scope.main={};
-      // alert($state.current.name);
-      // $scope.main.tabs = false;
       $scope.shouldHide = function () {
         if($state.current.name=='app.loginPrompt') {
                 return true;
@@ -18,136 +15,16 @@ angular.module('sociogram.controllers', ['ionic'])
       return PetService.getUser();
      };
 
-     // var themeSelectors = ".tab-item .ion-ios7-paper-outline";
-      // var declarations = {};
-      // declarations["font-size"] = 99;
-
-
-     // $scope.addCSS = function(selectors, declarations){
-         // var themeSelectors = ".tab-item .ion-ios7-paper-outline";
-         //  var declarations = {};
-         //  declarations["background-color"] = "red";
-       // return function(selectors, declarations) {
-        // var declarationString = "";
-        // angular.forEach(declarations, function(value, key) {
-        //     declarationString += key + ":" + value + " !important;"
-        // });
-
-        // if (declarationString != "") {
-        //     var sheet = document.createElement('style');
-        //     sheet.innerHTML = selectors + " {" + declarationString + "}";
-        //     document.body.appendChild(sheet);
-        // }
-        // return selectors
-    // };
-     // }
-    //    $scope.addCSS = function(selectors, declarations){
-    //      // var themeSelectors = ".tab-item .ion-ios7-paper-outline";
-    //      //  var declarations = {};
-    //      //  declarations["background-color"] = "red";
-    //    // return function(selectors, declarations) {
-    //     // var declarationString = "";
-    //     // angular.forEach(declarations, function(value, key) {
-    //     //     declarationString += key + ":" + value + " !important;"
-    //     // });
-
-    //     // if (declarationString != "") {
-    //         var sheet = document.createElement('style');
-    //         sheet.innerHTML = selectors + " {font-size:99!important}";
-    //         document.body.appendChild(sheet);
-    //     // }
-    //     // return selectors
-    // // };
-    //  }
-
-      // $scope.addCSS(themeSelectors, declarations);
-
-    // addCSS = (themeSelectors, declarations);
-
-      // $scope.main.dragContent = true;
-      // $scope.main.backBtn = false;
-
-
-    //logout functionality
-    // $scope.logout = function () {
-
-    //   // if(!$state.is('app.login')){
-    //     OpenFB.logout();
-    //     PetService.logOut();
-
-    //   $state.go('app.login');
-    //   // }
-
-    // };
-
-      // $scope.loginPrompt = function() {
-      //        $location.path('/app/loginPrompt');
-      //        PetService.setTabs(false);
-      //        StatusBar.styleDefault();
-      //      };
-
-    // $scope.goEvents = function(){
-    //   $timeout(function() {
-
-    // },100);
-    //   $location.path('/app/person/me/feed');
-    //   //allows for scroll position on the event feed to be maintained. Think about doing this for the other menu buttons
-    // };
-
-    //   $scope.goEvents = function(){
-
-    // if(PetService.getSingleView()==true){
-    //   $location.path('/app/event-detail');
-    //    $scope.main.backBtn = true;
-    // }else{
-    //   // PetService.setBack(false);
-    //     StatusBar.styleLightContent();
-    //   $location.path('/app/login');
-    // }
-
-    // };
-
-//       $scope.goShop = function() {
-// //this is lagging, why?
-//     // $state.go("app.feed");
-//     // $state.go("app.feed");
-//     // $timeout(function() {
-
-//     // },100);
-
-//     // if(PetService.getShopView()==true){
-//       // $location.path('/app/shop-detail');
-//     // } else{
-//       $location.path('/app/shop');
-//     // }
-
-//  //     // myPopup.close(); //close the popup after 3 seconds for some reason
-//  //  }, 650);
-//     };
-
-    // $scope.goAdd = function(){
-    //   $state.go('app.addAnEvent');
-    // };
-
-    // $scope.goHelp = function(){
-    //   $state.go('app.help');
-    // };
-
      $scope.shareBtn = function(a,b,c,d){
-      // analytics.trackEvent('button', 'click', 'share button', 1);
-      // ga('send', 'event', 'button', 'click', 'share button', 1);
      window.plugins.socialsharing.share(a,b,c,d);
        if(typeof analytics !== undefined) {
                    analytics.trackEvent("ShareClick", "Singe Watch Share Button Clicked", b, 1);
                 }
                 $http.post('http://stark-eyrie-6720.herokuapp.com/shareCount');
     };
-
-
-
   })
 
-.controller('BackCtrl', function ($scope,$ionicActionSheet, $ionicModal,  $ionicPopover, $ionicPlatform, $ionicNavBarDelegate, $ionicScrollDelegate, $ionicPopup, $http, $location, $ionicLoading ,OpenFB, $state, $stateParams, PetService) {
+.controller('BackCtrl', function ($scope,$ionicActionSheet, $ionicModal,  $ionicPopover, $ionicPlatform, $ionicNavBarDelegate, $ionicScrollDelegate, $ionicPopup, $http, $location, $ionicLoading , $state, PetService) {
 
 $scope.getPhotos = function(){
     function onSuccess(base64string) {
@@ -209,17 +86,13 @@ $scope.closeKeyboard();
 
 
     $scope.goBack = function(){
-         // PetService.setSingleView(false);
-         // alert("here");
-         // PetService.setSingleView(false);
-         // alert("here");
+
          $event.stopPropagation();
           $ionicNavBarDelegate.back();
-          // alert("here");
-          // $ionicNavBarDelegate.showBackButton(false);
-          // $scope.main.backBtn = false;
+
     };
 $scope.closeMe = function(){
+  // $state.go('app.login');
     $ionicNavBarDelegate.back();
   };
 
@@ -347,10 +220,6 @@ $scope.closeMe = function(){
     // Execute action
   });
 
-  $scope.startModal = function(){
-
-  };
-
   $scope.logTry= function(username,password){
          // username = "ng225";
      // password = "ikh";
@@ -447,7 +316,7 @@ $scope.profPic = PetService.getProfPic();
 
   }) // end of back controller
 
-  .controller('LoginCtrl', function ($scope, $ionicPlatform, $ionicActionSheet, $ionicNavBarDelegate, $ionicScrollDelegate, $ionicPopover, $ionicPopup, $http, $location, $ionicLoading ,OpenFB, $state, $stateParams, PetService) {
+  .controller('LoginCtrl', function ($scope, $ionicPlatform, $ionicActionSheet, $ionicNavBarDelegate, $ionicScrollDelegate, $ionicPopover, $ionicPopup, $http, $ionicLoading , $state, PetService) {
     // $scope.main = {};
     // alert(window.StatusBar);
 
@@ -493,22 +362,16 @@ $scope.hasPics2 = function(watchLikes){
 
 $scope.hasUserPic = function(like){
   if(like.userPic.length>0){
-    // $scope.likesDis++;
-    // alert(like);
     return like;
   }
 };
 $scope.hasNoUserPic = function(like){
   if(like.userPic.length==0){
-    // $scope.likesDis++;
-    // alert(like);
     return like;
   }
 };
-// $scope.like
+
 $scope.goLoginPerson = function(like){
-  // alert(like.username);
-  // alert($scope.singlePerson.username);
   if(like.username!=$scope.singlePerson.username){
     $http.post('http://stark-eyrie-6720.herokuapp.com/getUser22',
           {username: like.username}).error(function(){
@@ -518,15 +381,6 @@ $scope.goLoginPerson = function(like){
             "Couldn't display user."                 // buttonName
           )
           }).then(function (res2) {
-            // alert(res2.data.user.username);
-
-
-          // alert(res1.data.watchList.listName);
-
-          // $scope.events2 = res1.data.watchList.watchIndex;
-
-          // var currUser =  res1.data.user;
-          // alert($scope.watchList.length);
           if(res2.data.user=='false'){
             navigator.notification.alert(
             'User no longer exists.',  // message
@@ -555,17 +409,10 @@ $scope.goLoginPerson = function(like){
                 }
             }, 65);
           }
-
-           // alert()
           })
   }else{
-    // alert('here');
     $state.go('app.loginPerson');
   }
-
-
-  // $scope.singlePerson = PetService.getSinglePerson();
-  // alert(like);
 };
 
 $scope.goShopPerson = function(like){
@@ -578,15 +425,6 @@ $scope.goShopPerson = function(like){
             "Couldn't display user."                 // buttonName
           )
           }).then(function (res2) {
-            // alert(res2);
-
-
-          // alert(res1.data.watchList.listName);
-
-          // $scope.events2 = res1.data.watchList.watchIndex;
-
-          // var currUser =  res1.data.user;
-          // alert($scope.watchList.length);
           if(res2.data.user=='false'){
             navigator.notification.alert(
             'User no longer exists.',  // message
@@ -621,10 +459,6 @@ $scope.goShopPerson = function(like){
   }else{
     $state.go('app.shopPerson');
   }
-
-
-  // $scope.singlePerson = PetService.getSinglePerson();
-  // alert(like);
 };
 
 $scope.goProfilePerson = function(like){
@@ -637,14 +471,6 @@ $scope.goProfilePerson = function(like){
             "Couldn't display user."                 // buttonName
           )
           }).then(function (res3) {
-
-
-          // alert(res1.data.watchList.listName);
-
-          // $scope.events2 = res1.data.watchList.watchIndex;
-
-          // var currUser =  res1.data.user;
-          // alert($scope.watchList.length);
           if(res3.data.user=='false'){
             navigator.notification.alert(
             null,  // message
@@ -675,24 +501,13 @@ $scope.goProfilePerson = function(like){
             }, 65);
 
           }
-
-           // alert()
           });
   }else{
     $state.go('app.profilePerson');
   }
-
-
-  // $scope.singlePerson = PetService.getSinglePerson();
-  // alert(like);
 };
 
 $scope.goCat = function(catName,catTag){
-        // PetService.setShopSingle($scope.watchEx);
-         // $scope.main.backBtn = false;
-          // $state.go("app.shopDetail");
-          // alert(catName);
-                 // analytics.trackEvent(catName, 'Shop category viewed.', 'Label', 1);
         if(catName==$scope.catHeader){
           $state.go('app.singleShopCat');
        }else{
@@ -703,7 +518,6 @@ $scope.goCat = function(catName,catTag){
                $ionicScrollDelegate.scrollTop();
                 if(typeof analytics !== undefined) {
                    analytics.trackEvent("WatchCategory", "watch cat clicked", catName, 1);
-                  // analytics.trackView("Watch Login Feed");
                 }
             }, 65);
       }
@@ -781,14 +595,7 @@ $scope.relatedCategory = function(catAbrv){
 
 
      $scope.refreshWatches = function(){
-      // var userItem = $scope.userItem;
-      // var notCount = $scope.userItem.notifications.length;
-      // alert($scope.doAlert);
-      // if($scope.doAlert == true){
-        // alert("here");
-      // $scope.doAlert = false;
-      // var schoolName = $scope.userItem.userSchool;
-      // var userEmail = $scope.userItem.userEmail;
+
     $http.post('http://stark-eyrie-6720.herokuapp.com/watchesGet',
           {testInfo: 'testInfo recieved'}).error(function(err){
             // alert(err);
@@ -798,28 +605,10 @@ $scope.relatedCategory = function(catAbrv){
           PetService.refreshWatches(res1.data.watchList.watchesIndex);
        }).then(function(){
               $scope.watchList = PetService.getWatchList();
+              $scope.getWatchCats();
              $scope.$broadcast('scroll.refreshComplete');
        });
-
-        // alert(schoolName);
-        //  $http.post('http://stark-eyrie-6720.herokuapp.com/watchesGet', {testInfo: 'testInfo recieved'})
-        //  .error(function(err){
-        //     alert(err);
-        //        // $scope.scopeCards();
-        //      // $scope.doAlert = true;
-        //    $scope.$broadcast('scroll.refreshComplete');
-        //   }).success(function(res2){
-        //     // alert('here1');
-        //   // alert(res.Item.schoolName)
-
-        // // alert(PetService.refreshWatches());
-        // alert(res2.data);
-        //   // $scope.watchList = PetService.getWatches();
-        //     $scope.$broadcast('scroll.refreshComplete');
-        // })
-
     };
-// window.open('http://apache.org', '_blank', 'location=yes');
 
     $scope.getCover = function(watchCover){
   if(watchCover==undefined){
@@ -828,15 +617,10 @@ $scope.relatedCategory = function(catAbrv){
   else{
     return watchCover;
   }
-    // PetService.setStart(false);
-    // $scope.startCard = false;
-    // alert($scope.cards[1]);
   };
 
      //allows sharing functionaility
     $scope.shareBtn = function(a,b,c,d){
-      // analytics.trackEvent('button', 'click', 'share button', 1);
-      // ga('send', 'event', 'button', 'click', 'share button', 1);
      window.plugins.socialsharing.share(a,b,c,d);
       if(typeof analytics !== undefined) {
                    analytics.trackEvent("ShareClick", "Singe Watch Share Button Clicked", b, 1);
@@ -848,12 +632,8 @@ $scope.relatedCategory = function(catAbrv){
 
           $http.post('http://stark-eyrie-6720.herokuapp.com/watchesGet',
           {testInfo: 'testInfo recieved'}).then(function (res1) {
-          // alert(res1.data.watchList.listName);
-
-          // $scope.events2 = res1.data.watchList.watchIndex;
           PetService.setWatchList(res1.data.watchList.watchesIndex);
           $scope.watchList = res1.data.watchList.watchesIndex;
-         // alert(res1.data.watchList.watchesIndex);
        });
 
     };
@@ -865,45 +645,10 @@ $scope.relatedCategory = function(catAbrv){
               $scope.shopCatList = res1.data.watchCatDoc.watchCats;
        });
     };
-// $scope.setTabs = function(){}
 
       $scope.loginPrompt = function() {
-         // StatusBar.styleDefault();
            $state.go('app.loginPrompt');
     };
-    //   $scope.goLogin = function(){
-
-    // if(PetService.getSingleView()==true){
-    //   $location.path('/app/event-detail');
-    //    // $scope.main.backBtn = true;
-    // }
-    // else{
-    //   // PetService.setBack(false);
-    //     // StatusBar.styleLightContent();
-    //   $location.path('/app/login');
-    // }
-
-    // };
-
-    //   $scope.goBack = function(){
-    //     // PetService.setBack(false);
-    //    $ionicNavBarDelegate.back();
-    //    // $scope.main.backBtn = true;
-    // };
-// $scope.getLikes = function(watch){
-//       if(watch.watchLikes.length>0){
-//           $http.post('http://stark-eyrie-6720.herokuapp.com/getLikes',
-//                {
-//                   likes: watch.watchLikes
-//                 }).error(function(){
-//                     return [];
-//                 }).then(function(res){
-//                     return res.data.userLikes;
-//                 })
-//       }else{
-//            return [];
-//       }
-// };
         //expands single event
    $scope.go_here = function (watch) {
     // alert(watch.likesArray);
@@ -940,10 +685,18 @@ $scope.relatedCategory = function(catAbrv){
                   username: $scope.user.username,
                   userPic: $scope.user.userPic
                 });
+          for(x=0;x<$scope.watchList.length;x++){
+            for(y=0;y<$scope.watchList[x].watchLikes.length;y++){
+              if($scope.watchList[x].watchLikes[y].username == $scope.user.username){
+                 $scope.watchList[x].watchLikes[y].userPic = $scope.user.userPic;
+                 PetService.setWatchList($scope.watchList);
+             }
+           }
+         }
     }
      function onFail(message) {
         hideSheet();
-        alert('Failed because: ' + message);
+        // alert('Failed because: ' + message);
      }
 
    var hideSheet = $ionicActionSheet.show({
@@ -981,8 +734,10 @@ $scope.relatedCategory = function(catAbrv){
 }
     $scope.logUserOut= function() {
       PetService.logOut();
-      // PetService.setUserPic("");
       $state.go('app.login');
+      setTimeout(function() {
+          $ionicScrollDelegate.scrollTop();
+         }, 65);
     };
 
   $scope.settingProf = function(){
@@ -1071,7 +826,7 @@ $scope.relatedCategory = function(catAbrv){
                     'Message Sent.'               // buttonName
                   );
                 // $scope.showAlert("Your message has been sent.","Success!");
-                // $location.path('/app/person/me/feed');
+
               }).error(function(){
                   navigator.notification.alert(
                     'If you see this repeatedly with a strong internet connection, please contact us at DimepieceApp@gmail.com',  // message
@@ -1092,8 +847,8 @@ $scope.relatedCategory = function(catAbrv){
     };
 
      $scope.addWish= function(watch) {
-       if($scope.user){
-        // alert('here');
+       if($scope.user&&!watch.liked){
+        // alert(watch.liked);
            // var user = $scope.user;
            // watch.liked = true;
            for(l=0;l<$scope.watchList.length;l++){
@@ -1112,14 +867,6 @@ $scope.relatedCategory = function(catAbrv){
             $scope.user.likes.push(watch);
             PetService.setUser($scope.user);
             PetService.setWatchList($scope.watchList);
-              // alert('here2');
-
-              // alert('here3');
-
-
-               // alert('here4');
-              // PetService.setUser($scope.user);
-         // PetService.setWatchList($scope.watchList);
 
            $http.post('http://stark-eyrie-6720.herokuapp.com/liked',
                  {
@@ -1146,25 +893,25 @@ $scope.relatedCategory = function(catAbrv){
 
          // watch.liked = false;
          // var watchLoc = $scope.watchList.indexOf(watch);
+      if(watch.liked){
         for(l=0;l<$scope.watchList.length;l++){
           if($scope.watchList[l].watchName==watch.watchName){
             watchLoc = l;
                 $scope.watchList[watchLoc].liked = false;
-             // alert(watch.liked);
-                 // alert($scope.watchList[watchLoc].watchLikes);
-         $scope.watchList[watchLoc].watchLikes.splice($scope.watchList[watchLoc].watchLikes.indexOf({'username': $scope.user.username},1));
+
+                 function findWithAttr(array, attr, value) {
+                      for(var i = 0; i < array.length; i += 1) {
+                          if(array[i][attr] === value) {
+                              return i;
+                          }
+                      }
+                  }
+                 var userLikePos = findWithAttr($scope.watchList[watchLoc].watchLikes, 'username', $scope.user.username);
+                 // alert(userLikePos); // returns 0
+                $scope.watchList[watchLoc].watchLikes.splice(userLikePos,1);
           }
         }
-          // var watchLoc = $scope.watchList.indexOf(watch);
-         // alert(watchLoc);
-               // alert($scope.watchList[watchLoc].watchLikes[0]);
-
-
-            // alert($scope.watchList[watchLoc].watchLikes);
-
-              // alert($scope.watchList[watchLoc].watchLikes[0]);
-            // watch.liked = !watch.liked;
-            for(z=0;z<$scope.user.likes.length;z++){
+           for(z=0;z<$scope.user.likes.length;z++){
                if($scope.user.likes[z].watchName==watch.watchName){
                 $scope.user.likes.splice(z,1);
               }
@@ -1174,42 +921,15 @@ $scope.relatedCategory = function(catAbrv){
          PetService.setUser($scope.user);
             PetService.setWatchList($scope.watchList);
 
-          // watch.watchLikes.splice(watchLikes.indexOf({'username': $scope.user.username},1));
-              // alert(watch.liked);
-          // $scope.singleProfileWatch.liked = false;
-         // PetService.setUser($scope.user);
-         // PetService.setWatchList($scope.watchList);
-
-         // $scope.singleWatch.liked = !$scope.singleWatch.liked;
          $http.post('http://stark-eyrie-6720.herokuapp.com/unliked',
                  {
                     watchObj: watch,
                     username: $scope.user.username
                   });
+        }
+
     };
         $scope.addColl= function(collection,watch) {
-       // if($scope.user){
-        // alert('here');
-           // var user = $scope.user;
-           // watch.liked = true;
-           // for(l=0;l<$scope.watchList.length;l++){
-           //    if($scope.watchList[l].watchName==watch.watchName){
-           //      watchLoc = l;
-           //      $scope.watchList[watchLoc].liked =  true;
-           //       if($scope.watchList[watchLoc].watchLikes.length>9){
-           //          $scope.watchList[watchLoc].watchLikes.push({'username': $scope.user.username, 'userPic': ''});
-           //        }else{
-           //          $scope.watchList[watchLoc].watchLikes.push({'username': $scope.user.username, 'userPic': $scope.user.userPic});
-           //          // var user = $scope.user;
-           //        }
-           //    }
-           //  }
-           // var watchLoc = $scope.watchList.indexOf(watch);
-           // collection.selected = true;
-           //push it to the collection locally
-           //store it locally
-           //push it to server
-
           if($scope.alreadyCollected(collection,watch)!=true){
                   for(x=0;x<$scope.user.collections.length;x++){
             if($scope.user.collections[x].collectionName==collection.collectionName){
@@ -1236,30 +956,6 @@ $scope.relatedCategory = function(catAbrv){
                     // collectionName:collection.collectionName
                   });
 
-
-              // collection.watches.push(watch.watchName);
-
-
-            // }
-           // }
-
-            // PetService.setUser($scope.user);
-            // PetService.setWatchList($scope.watchList);
-
-              // alert('here2');
-
-              // alert('here3');
-
-
-               // alert('here4');
-              // PetService.setUser($scope.user);
-         // PetService.setWatchList($scope.watchList);
-
-
-       // }
-       // else{
-         // $scope.loginPrompt();
-       // }
     };
     $scope.alreadyCollected = function(collection,watch){
       if(collection.watches.indexOf(watch.watchName)>-1){
@@ -1275,8 +971,6 @@ $scope.relatedCategory = function(catAbrv){
       $ionicPopup.alert({
         title: title,
         content: message
-      }).then(function(res) {
-        // console.log('Alert Shown.');
       });
     };
 
@@ -1290,7 +984,6 @@ $scope.relatedCategory = function(catAbrv){
       setTimeout(function() {
                $ionicScrollDelegate.resize();
             }, 165);
-  // $scope.shouldBeOpen =
     };
      $scope.toggleProf2 = function(){
       $scope.toggle2 = !$scope.toggle2;
@@ -1338,13 +1031,9 @@ $scope.relatedCategory = function(catAbrv){
       }else{
            $scope.loginPrompt();
       }
-    // $scope.newNot=false;
-    // PetService.setNewNot(false);
   };
 
   $scope.createNewCollection = function(collName,watch){
-    // alert('here');
-    // alert($scope.user.collections[0].collectionName);
       var collectionExists = function(collections,collectionName2){
       for(x=0;x<collections.length;x++) {
           if(collections[x].collectionName == collectionName2){
@@ -1354,8 +1043,6 @@ $scope.relatedCategory = function(catAbrv){
         }
       return false;
      };
-     // alert();
-     // alert();
     if(collName.length>0){
        if(collectionExists($scope.user.collections,collName)){
          navigator.notification.alert(
@@ -1379,7 +1066,6 @@ $scope.relatedCategory = function(catAbrv){
                   });
                 }
       }
-            // $scope.thing123();
   };
 
   $scope.closeAddCollection = function() {
@@ -1447,9 +1133,6 @@ $scope.relatedCategory = function(catAbrv){
        $scope.feed = feed;
        PetService.setFeed(feed);
       }
-      // setTimeout(function() {
-      //    $scope.openPopover();
-      // }, 100);
     };
     $scope.collectionWatchPic = function(watchName){
        if(watchName !== null && typeof watchName !== 'object'){
@@ -1471,37 +1154,7 @@ $scope.relatedCategory = function(catAbrv){
 $scope.newCollBtn = function(){
 
   $scope.createNew = true;
-   // setTimeout(function() {
-               // $ionicScrollDelegate.resize();
-            // }, 65);
-  // $scope.shouldBeOpen = true;
- // $scope.$broadcast("newItemAdded");
 }
-// cordova.plugins.Keyboard.close();
-// cordova.plugins.Keyboard.automaticScrollToTopOnHiding = true;
-
-
-         // analytics.trackView('Event Feed Accessed');
-                 // window.analytics.startTrackerWithId('UA-61746544-2');
-            // window.analytics.trackView('Screen Title');
-            // alert(JSON.stringify(window));
-
-     $scope.toggle=PetService.getProfileView();
-     $scope.toggle2=PetService.getProfileView2();
-     $scope.toggle3=PetService.getProfileView3();
-     $scope.toggle4=PetService.getProfileView4();
-     $scope.singleWatch = PetService.getSingle();
-     $scope.singleWatch2 = PetService.getSingle2();
-     $scope.singleShopWatch = PetService.getSingleShop();
-     $scope.singleShopWatch2 = PetService.getSingleShop2();
-     $scope.singleProfileWatch = PetService.getSingleProfile();
-     $scope.singleProfileWatch2 = PetService.getSingleProfile2();
-     $scope.singlePerson = PetService.getSinglePerson();
-     $scope.singleShopPerson = PetService.getSingleShopPerson();
-     $scope.singleProfilePerson = PetService.getSingleProfilePerson();
-     $scope.profileCollection = PetService.getProfileCollection();
-     $scope.shopCollection = PetService.getShopCollection();
-     $scope.loginCollection = PetService.getLoginCollection();
 
 
     if(PetService.getWatchList().length==0){
@@ -1516,25 +1169,32 @@ $scope.newCollBtn = function(){
       $scope.getWatchCats();
     }
 
+    $scope.toggle=PetService.getProfileView();
+    $scope.toggle2=PetService.getProfileView2();
+    $scope.toggle3=PetService.getProfileView3();
+    $scope.toggle4=PetService.getProfileView4();
+    $scope.singleWatch = PetService.getSingle();
+    $scope.singleWatch2 = PetService.getSingle2();
+    $scope.singleShopWatch = PetService.getSingleShop();
+    $scope.singleShopWatch2 = PetService.getSingleShop2();
+    $scope.singleProfileWatch = PetService.getSingleProfile();
+    $scope.singleProfileWatch2 = PetService.getSingleProfile2();
+    $scope.singlePerson = PetService.getSinglePerson();
+    $scope.singleShopPerson = PetService.getSingleShopPerson();
+    $scope.singleProfilePerson = PetService.getSingleProfilePerson();
+    $scope.profileCollection = PetService.getProfileCollection();
+    $scope.shopCollection = PetService.getShopCollection();
+    $scope.loginCollection = PetService.getLoginCollection();
     $scope.feed =  PetService.getFeed();
     $scope.watchList = PetService.getWatchList();
     $scope.shopCatList = PetService.getCatList();
     $scope.user = PetService.getUser();
     $scope.catHeader = PetService.getCatHead();
     $scope.catTag = PetService.getCatTag();
-    $scope.loadLimit=40;
+    $scope.loadLimit=22;
     $scope.createNew=false;
     $scope.newCollectionName=null;
     $scope.searchShow = false;
-
-    // if(typeof analytics !== undefined) { analytics.startTrackerWithId("UA-61746544-2"); analytics.trackView("Awesome Controller"); }
-     // $scope.showNav();
-
-    // $scope.addCollWatch = PetService.getAddColl();
-         // Google Analytics Trackers, controller init setup
-
-
-
 
 
      $ionicPopover.fromTemplateUrl('my-popover.html', {
@@ -1543,23 +1203,6 @@ $scope.newCollBtn = function(){
     $scope.popover = popover;
 
   });
-
-    // analytics.trackView('Dimepiece Accessed');
-
-//     $timeout(function(){
-//   $ionicScrollDelegate.scrollTop();
-// },65)
-
-
-
-
-    // }
-    // $scope.doThis2=function(){
-    //   // $scope.showAlert("Connection to the server could not be acheived at this time. Increase your WiFi/service or try again later.","Failed.");
-    //   $scope.showAlert("We couldn't verify that as a valid university email. Make sure you are on the right portal for your respective university, and that you entered your OWN valid email. If you are in fact a student at this school, and continue to experience trouble, shoot us an email at UNightlifeTeam@gmail.com.");
-    //   $scope.showAlert('Facebook connection failed.');
-    //   $scope.showAlert("Event Added to Your Calendar.");
-    // }
 
   }) // end of login controller
 

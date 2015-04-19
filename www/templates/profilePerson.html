@@ -33,14 +33,8 @@
 
          </div>
 
-     <!--     <label class="item item-input" >
-          <i class="icon ion-person placeholder-icon"></i>
-         <input type="text" placeholder="Full Name" >w
-         </label> -->
 </div>
-  <!-- <hr class="div12"> -->
 
-<!-- data = data.substr(0, 4) + " " + data.substr(4, 6) -->
   <div ng-show="toggle4==true" class="eventScroller" ng-repeat="watch in singleProfilePerson.likes.slice().reverse() | limitTo: 30" ng-click="expandProf2(watch)" >
 
     <div class="front">
@@ -48,40 +42,26 @@
     <!-- <img ng-hide="event.cover!=undefined" ng-click="go_here(event)" class="full-image" src="http://i62.tinypic.com/2zznq55.jpg" > -->
 
           <div class="eventInfoSection" ng-init="watch.liked=liked(watch);">
-            <!-- watchAction(event); -->
-             <!-- <a ng-hide="event.watched" ng-click="$event.stopPropagation();" class="ion-ios7-eye-outline watchBtn"></a> -->
-             <!-- <a ng-click="" class="ion-ios7-eye watchBtn"></a> -->
-      <!-- <h3 id="eventName">{{event.name}}</h3> -->
+
       <div ng-init="watch.showPrice=false;" class="watchFeedBtns item-text-wrap">
         <h2 class="watchName">{{watch.watchName}}</h2>
         <h2 ng-if="watch.watchLikes.length!=1" class="likePrice">{{watch.watchLikes.length}} likes / {{watch.watchPrice}}</h2>
         <h2 ng-if="watch.watchLikes.length==1" class="likePrice">{{watch.watchLikes.length}} like / {{watch.watchPrice}}</h2>
-        <!-- <h2 class="likePrice">{{watch.watchLikes.length}} likes / {{watch.watchPrice}}</h2> -->
 
-                <!--   <i ng-click="expandPrice(event)" ng-if="event.showPrice==false" class="icon ion-cash"></i>
-                  <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
-                 10.00
-               </i> -->
                <i ng-click="$event.stopPropagation(); addWish(watch);" ng-hide="watch.liked" class="icon ion-ios7-heart-outline"></i>
                <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-show="watch.liked" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); openAddCollection(watch)" class="icon ion-ios7-plus-empty"></i>
                <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch (via dimepiece.co)', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
-      <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
-      <!-- <p class="eventDT" ng-if="event.start_time!=null">{{event.start_time}}</p> -->
-       <!-- <p class="eventDT" ng-if="event.timeOfEvent!=null">{{event.timeOfEvent}}</p> -->
+
     </div>
   </div>
 
 </div>
 <ion-list ng-show="toggle4==false" >
    <ion-item class="collections" ng-click="expandProfileCollection(collection)" can-swipe="false" ng-repeat="collection in singleProfilePerson.collections.slice().reverse() | limitTo: 20">
-   <!--  <ion-option-button class="profCollectionBtn profCollectionShare ion-android-share" ng-click="shareBtn('Made an awesome collection of watches on Dimepiece called '+collection.collectionName+'. Check the app out for yourself at http://unightlife.io/app.', 'Looking for cool watches?',null, null);">
-    </ion-option-button>
-    <ion-option-button class="profCollectionBtn profCollectionDelete ion-minus-circled"
-                       ng-click="deleteCollection(collection)">
-    </ion-option-button> -->
+
       <h2 class="collectionName">{{collection.collectionName}}</h2>
    <div class="collectionSection" ng-repeat="watch in collection.watches.slice().reverse() | limitTo: 3 ">
    <img class="collectionItem3" src="{{collectionWatchPic(watch)}}">
